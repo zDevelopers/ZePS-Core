@@ -327,7 +327,7 @@ public enum Station
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
 
 
-        check();
+        // check();
     }
 
 
@@ -534,7 +534,7 @@ public enum Station
         return TYPE == StationType.INTERSECTION_ONLY || TYPE == StationType.INTERSECTION_AND_PORTAL;
     }
 
-    public JsonObject toJson()
+    public JsonObject toJson(boolean withNetwork)
     {
         JsonObject objectStation = new JsonObject();
 
@@ -550,6 +550,23 @@ public enum Station
 
         objectStation.add("is_portal", new JsonPrimitive(this.isPortal()));
         objectStation.add("is_intersection", new JsonPrimitive(this.isIntersection()));
+
+        JsonObject network = new JsonObject();
+
+        if(withNetwork)
+        {
+            for(Direction direction : Direction.values())
+            {
+                Station sub = this.getSubStation(direction);
+
+                String key = direction.name().toLowerCase();
+
+                if(sub != null)
+                    network.add(key, new JsonPrimitive(getId(sub)));
+            }
+
+            objectStation.add("network", network);
+        }
 
         return objectStation;
     }

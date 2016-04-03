@@ -9,15 +9,19 @@ public class Main
 
     public static void main(String[] args)
     {
-        try
+        /*try // Map rendering test
         {
             MapCreator.saveMap("E:/nethermap.png");
         } catch(java.io.IOException e)
         {
             e.printStackTrace();
-        }
+        }*/
 
-        Station.values(); // Test if the stations are correctly indexed.
+        // args = new String[] {"pathfinder", "64", "51"};
+
+        // args = new String[] {"list", "true"};
+
+        // Station.values(); // Test if the stations are correctly indexed.
 
         JsonObject error = new JsonObject();
 
@@ -35,15 +39,24 @@ public class Main
             }
             else if(args[0].equals("list"))
             {
+                boolean withNetwork = false;
+
+                if(args.length >= 2)
+                {
+                    withNetwork = Boolean.parseBoolean(args[1]);
+                }
+
                 JsonObject object = new JsonObject();
                 object.add("result", new JsonPrimitive("success"));
                 object.add("time", new JsonPrimitive(0));
+
+                object.add("withNetwork", new JsonPrimitive(withNetwork));
 
                 JsonArray array = new JsonArray();
 
                 for(Station station : Station.getStationsAlphabetically())
                 {
-                    array.add(station.toJson());
+                    array.add(station.toJson(withNetwork));
                 }
 
                 object.add("stations", array);

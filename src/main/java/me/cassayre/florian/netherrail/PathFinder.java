@@ -141,7 +141,7 @@ public class PathFinder
      */
     public JsonObject buildStationObject(Station station, Station next)
     {
-        JsonObject objectStation = station.toJson();
+        JsonObject objectStation = station.toJson(false);
 
         if(next != null)
         {
