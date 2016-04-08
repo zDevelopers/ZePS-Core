@@ -64,6 +64,11 @@ public class Main
                 System.out.print(object);
                 return;
             }
+            else if(args[0].equals("colors"))
+            {
+                System.out.println(NetworkAreas.toJson());
+                return;
+            }
             else
             {
                 throw new IllegalArgumentException(args[0]);
