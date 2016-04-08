@@ -128,7 +128,7 @@ public class PathFinder
             array.add(objectStation);
         }
 
-        object.add("stations", array);
+        object.add("path", array);
 
         return object;
     }
@@ -141,22 +141,30 @@ public class PathFinder
      */
     public JsonObject buildStationObject(Station station, Station next)
     {
+        JsonObject object = new JsonObject();
+
         JsonObject objectStation = station.toJson(false);
+
+        object.add("station", objectStation);
 
         if(next != null)
         {
+            JsonObject objectNext = new JsonObject();
+
             int distanceToNext = (int) station.getDistanceFrom(next);
             Direction direction = station.getDirection(next);
             PathType type = station.getPathType(direction);
 
             // (old) distance += distanceToNext;
 
-            objectStation.add("path_direction", new JsonPrimitive(direction.name().toLowerCase()));
-            objectStation.add("path_length", new JsonPrimitive(distanceToNext));
-            objectStation.add("path_type", new JsonPrimitive(type.name().toLowerCase()));
+            objectNext.add("direction", new JsonPrimitive(direction.name().toLowerCase()));
+            objectNext.add("length", new JsonPrimitive(distanceToNext));
+            objectNext.add("type", new JsonPrimitive(type.name().toLowerCase()));
+
+            object.add("connection", objectNext);
         }
 
-        return objectStation;
+        return object;
     }
 
     /**
