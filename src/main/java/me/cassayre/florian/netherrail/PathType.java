@@ -9,4 +9,14 @@ public enum PathType
     OFFICIAL_WALKING,
     UNOFFICIAL_RAIL,
     UNOFFICIAL_WALKING;
+
+    public boolean isRail()
+    {
+        return this == OFFICIAL_RAIL || this == UNOFFICIAL_RAIL;
+    }
+
+    public boolean isOfficial()
+    {
+        return this == OFFICIAL_RAIL || this == OFFICIAL_WALKING;
+    }
 }

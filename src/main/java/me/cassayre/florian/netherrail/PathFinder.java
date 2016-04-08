@@ -120,7 +120,7 @@ public class PathFinder
         {
             boolean hasNext = i < path.size() - 1;
 
-            JsonObject objectStation = buildStationObject(path.get(i), hasNext ? path.get(i + 1) : null);
+            JsonObject objectStation = Station.buildStationPathObject(path.get(i), hasNext ? path.get(i + 1) : null);
 
             if(hasNext)
                 distance += path.get(i).getDistanceFrom(path.get(i + 1));
@@ -129,40 +129,6 @@ public class PathFinder
         }
 
         object.add("path", array);
-
-        return object;
-    }
-
-    /**
-     * Creates a json object representing this station and its path. The last station does not have any path.
-     * @param station the station
-     * @param next the next station
-     * @return a json object
-     */
-    public JsonObject buildStationObject(Station station, Station next)
-    {
-        JsonObject object = new JsonObject();
-
-        JsonObject objectStation = station.toJson(false);
-
-        object.add("station", objectStation);
-
-        if(next != null)
-        {
-            JsonObject objectNext = new JsonObject();
-
-            int distanceToNext = (int) station.getDistanceFrom(next);
-            Direction direction = station.getDirection(next);
-            PathType type = station.getPathType(direction);
-
-            // (old) distance += distanceToNext;
-
-            objectNext.add("direction", new JsonPrimitive(direction.name().toLowerCase()));
-            objectNext.add("length", new JsonPrimitive(distanceToNext));
-            objectNext.add("type", new JsonPrimitive(type.name().toLowerCase()));
-
-            object.add("connection", objectNext);
-        }
 
         return object;
     }

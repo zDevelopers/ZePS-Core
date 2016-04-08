@@ -1,5 +1,6 @@
 package me.cassayre.florian.netherrail;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -551,7 +552,7 @@ public enum Station
         objectStation.add("is_portal", new JsonPrimitive(this.isPortal()));
         objectStation.add("is_intersection", new JsonPrimitive(this.isIntersection()));
 
-        JsonObject network = new JsonObject();
+        JsonArray network = new JsonArray();
 
         if(withNetwork)
         {
@@ -562,13 +563,64 @@ public enum Station
                 String key = direction.name().toLowerCase();
 
                 if(sub != null)
-                    network.add(key, new JsonPrimitive(getId(sub)));
+                    network.add(buildConnectionObject(this, sub));
             }
 
             objectStation.add("network", network);
         }
 
         return objectStation;
+    }
+
+
+    /**
+     * Creates a json object representing this station and its path. The last station does not have any path.
+     * @param station the station
+     * @param next the next station
+     * @return a json object
+     */
+    public static JsonObject buildStationPathObject(Station station, Station next)
+    {
+        JsonObject object = new JsonObject();
+
+        JsonObject objectStation = station.toJson(false);
+
+        object.add("station", objectStation);
+
+        if(next != null)
+        {
+            JsonObject connection = Station.buildConnectionObject(station, next);
+
+            object.add("connection", connection);
+        }
+
+        return object;
+    }
+
+    /**
+     * Creates a json object representing a connection between two stations.
+     * @param station the main station
+     * @param sub the sub station
+     * @return a json object
+     */
+    public static JsonObject buildConnectionObject(Station station, Station sub)
+    {
+        JsonObject object = new JsonObject();
+
+        object.add("from", new JsonPrimitive(Station.getId(station)));
+        object.add("to", new JsonPrimitive(Station.getId(sub)));
+
+        object.add("direction", new JsonPrimitive(station.getDirection(sub).name().toLowerCase()));
+
+        object.add("length", new JsonPrimitive((int) station.getDistanceFrom(sub)));
+
+        PathType pathType = station.getPathType(sub);
+
+        object.add("is_official", new JsonPrimitive(pathType.isOfficial()));
+
+        object.add("is_rail", new JsonPrimitive(pathType.isRail()));
+
+        return object;
     }
 }
 
