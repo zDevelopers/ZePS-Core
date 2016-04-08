@@ -133,7 +133,7 @@ public enum Station
     FLANGORIA(30, -24, "Flangoria"),
     ATTRACTION(30, -3, "Attractions"),
     UZINE_COCHON(30, 23, "UZine à cochons"),
-    VAALON(30, 43, "Vaalon", StationType.INTERSECTION_AND_PORTAL),
+    VAALON(30, 47, "Vaalon", StationType.INTERSECTION_AND_PORTAL),
     MOBY_DICK(89, 47, "New Libery & Moby Dick"),
     AGRISUB_1(132, 47, "Agrisub I", StationType.INTERSECTION_AND_PORTAL),
     UNKNOWN_11(148, 47, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
