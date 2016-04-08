@@ -159,7 +159,7 @@ public enum Station
     POSEIDOPOLIS_EST(540, 251, "Poséidopolis Est", StationType.INTERSECTION_ONLY),
     NOT_FINISHED_4(540, 539, "En travaux", StationType.INTERSECTION_ONLY, false, true),
     CARDINALE_EST(708, 539, "Cardinale Est", StationType.INTERSECTION_AND_PORTAL),
-    SURET(540, 539, "Suret", StationType.INTERSECTION_AND_PORTAL),
+    SURET(540, 600, "Suret", StationType.INTERSECTION_AND_PORTAL),
     USINE_GARDIENS(426, 539, "Usine à gardiens", StationType.INTERSECTION_AND_PORTAL),
     FORTERESSE_MYSTERIEUSE(-132, 539, "Forteresse mystérieuse", StationType.INTERSECTION_AND_PORTAL),
     HASHTAG(-348, 539, "HashTag", StationType.INTERSECTION_AND_PORTAL),
