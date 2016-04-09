@@ -13,32 +13,40 @@ public class NetworkAreas
 
     static
     {
-        registerX(-714, new Color(255, 236, 39));
-        registerX(-529, new Color(255, 189, 206));
-        registerX(-341, new Color(94, 116, 255));
-        registerX(-234, new Color(110, 244, 5));
-        registerX(30, new Color(165, 178, 255));
-        registerX(540, new Color(64, 168, 186));
+        registerX(new Color(255, 236, 39), -714);
+        registerX(new Color(119, 98, 40), -570);
+        registerX(new Color(255, 189, 206), -529);
+        registerX(new Color(221, 72, 70), -378, -286, -40);
+        registerX(new Color(94, 116, 255), -341);
+        registerX(new Color(110, 244, 5), -234);
+        registerX(new Color(165, 178, 255), 30, 148, 259);
+        registerX(new Color(255, 170, 20), 294);
+        registerX(new Color(64, 168, 186), 540);
 
-        registerY(539, new Color(110, 176, 86));
-        registerY(47, new Color(221, 72, 70));
-        registerY(-301, new Color(0, 0, 0));
-        registerY(-702, new Color(255, 170, 20));
-        registerY(-1069, new Color(119, 98, 40));
-        registerY(-1436, new Color(255, 122, 238));
+        registerY(new Color(110, 176, 86), 539);
+        registerY(new Color(221, 72, 70), 47);
+        registerY(new Color(165, 178, 255), -84, -94, -120, -408);
+        registerY(new Color(0, 0, 0), -206, -301, -342);
+        registerY(new Color(255, 170, 20), -702);
+        registerY(new Color(64, 168, 186), -780);
+        registerY(new Color(255, 236, 39), -823);
+        registerY(new Color(255, 189, 206), -853);
+        registerY(new Color(119, 98, 40), -1069);
+        registerY(new Color(94, 116, 255), -1208);
+        registerY(new Color(255, 122, 238), -1436);
     }
 
-    public static void registerX(int coordinate, Color color)
+    public static void registerX(Color color, int... coordinates)
     {
-        register(Area.Orientation.VERTICAL, coordinate, color);
+        register(Area.Orientation.VERTICAL, color, coordinates);
     }
 
-    public static void registerY(int coordinate, Color color)
+    public static void registerY(Color color, int... coordinates)
     {
-        register(Area.Orientation.HORIZONTAL, coordinate, color);
+        register(Area.Orientation.HORIZONTAL, color, coordinates);
     }
 
-    private static void register(Area.Orientation orientation, int coordinate, Color color)
+    private static void register(Area.Orientation orientation, Color color, int... coordinates)
     {
         if(orientation == null)
             throw new IllegalArgumentException("Orientation cannot be null.");
@@ -46,7 +54,7 @@ public class NetworkAreas
         if(color == null)
             throw new IllegalArgumentException("Color cannot be null.");
 
-        areas.add(new Area(orientation, coordinate, color));
+        areas.add(new Area(orientation, color, coordinates));
     }
 
     public static List<Area> getAreas(Area.Orientation orientation)
@@ -73,7 +81,12 @@ public class NetworkAreas
         {
             JsonObject areaObject = new JsonObject();
 
-            areaObject.add("coordinate", new JsonPrimitive(area.COORDINATE));
+            JsonArray array = new JsonArray();
+
+            for(Integer value : area.COORDINATES)
+                array.add(new JsonPrimitive(value));
+
+            areaObject.add("coordinates", array);
 
             areaObject.add("color", colorToJson(area.COLOR));
 
@@ -105,13 +118,13 @@ public class NetworkAreas
 class Area
 {
     public final Orientation ORIENTATION;
-    public final int COORDINATE;
+    public final int[] COORDINATES;
     public final Color COLOR;
 
-    public Area(Orientation orientation, int coordinate, Color color)
+    public Area(Orientation orientation, Color color, int... coordinates)
     {
         ORIENTATION = orientation;
-        COORDINATE = coordinate;
+        COORDINATES = coordinates;
         COLOR = color;
     }
 

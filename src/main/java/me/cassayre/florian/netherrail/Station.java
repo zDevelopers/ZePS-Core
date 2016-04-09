@@ -31,7 +31,7 @@ public enum Station
     PIC_MARECAGE(-779, -1436, "Pic du marécage", StationType.INTERSECTION_AND_PORTAL),
     HURLENEIGE(-540, -1436, "Hurleneige", StationType.INTERSECTION_AND_PORTAL),
     GARDIENS(-413, -1436, "Chute de gardiens"),
-    FORET_COUVERTE(-557, -1129, "Forêt couverte et Marais montagneux"),
+    FORET_COUVERTE(-570, -1129, "Forêt couverte et Marais montagneux"),
     MOINTAGNE(-714, -397, "Mointagne"),
     ISLA_NUBAR(-529, -520, "Isla Nublar"),
     COLLINE_BOULEAUX(-485, -853, "Colline des bouleaux géants"),
@@ -156,7 +156,6 @@ public enum Station
     BLAZES_POINT(-378, -152, "Blazes point"),
     UNKNOWN_12(-341, -1208, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     USINE_OR(-527, -1208, "Usine à or et à XP"),
-
     POSEIDOPOLIS_EST(540, 251, "Poséidopolis Est", StationType.INTERSECTION_ONLY),
     NOT_FINISHED_4(540, 539, "En travaux", StationType.INTERSECTION_ONLY, false, true),
     CARDINALE_EST(708, 539, "Cardinale Est", StationType.INTERSECTION_AND_PORTAL),
@@ -165,7 +164,7 @@ public enum Station
     FORTERESSE_MYSTERIEUSE(-132, 539, "Forteresse mystérieuse", StationType.INTERSECTION_AND_PORTAL),
     HASHTAG(-348, 539, "HashTag", StationType.INTERSECTION_AND_PORTAL),
     ILE_ZACQUES(-480, 539, "Île de Zâcques"),
-
+    UNKNOWN_13(-529, -853, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
 
 
 
@@ -178,7 +177,7 @@ public enum Station
         register(NOUVEA, FLEURS, ZIG_ZAG, PEPINIERE_OUEST, null); //
         register(ZIG_ZAG, FJORDS, RESERVE, PEPINIERE_EST, NOUVEA); //
         register(PEPINIERE_OUEST, NOUVEA, null, MOINTAGNE, null); //
-        register(FJORDS, COLLINE_BOULEAUX, null, ZIG_ZAG, FLEURS); //
+        register(FJORDS, UNKNOWN_13, null, ZIG_ZAG, FLEURS); //
         register(FLEURS, VERTICALE, FJORDS, NOUVEA, null); //
         register(PEPINIERE_EST, ZIG_ZAG, null, ISLA_NUBAR, null); //
         register(VERTICALE, KRAVEN, CARBONE, FLEURS, UZINE); //
@@ -195,7 +194,7 @@ public enum Station
         register(FORET_COUVERTE, null, null, CARBONE, null); //
         register(MOINTAGNE, PEPINIERE_OUEST, null, UNKNOWN_1, null);
         register(ISLA_NUBAR, PEPINIERE_EST, null, GLACIER, null); //
-        register(COLLINE_BOULEAUX, null, AEROPORT, FJORDS, null); //
+        register(COLLINE_BOULEAUX, null, AEROPORT, null, UNKNOWN_13); //
         register(AEROPORT, null, SOURCE, null, COLLINE_BOULEAUX); //
         register(SOURCE, null, null, null, AEROPORT); //
         register(ELERIA, SORCIERES, null, RESERVE, null); //
@@ -317,7 +316,6 @@ public enum Station
         register(BLAZES_POINT, null, null, CIUDAD, null);
         register(UNKNOWN_12, null, null, GHAST, USINE_OR);
         register(USINE_OR, null, UNKNOWN_12, null, null);
-
         register(POSEIDOPOLIS_EST, MELBURNE, null, NOT_FINISHED_4, null);
         register(NOT_FINISHED_4, POSEIDOPOLIS_EST, CARDINALE_EST, SURET, USINE_GARDIENS);
         register(CARDINALE_EST, null, null, null, NOT_FINISHED_4);
@@ -326,6 +324,7 @@ public enum Station
         register(FORTERESSE_MYSTERIEUSE, null, USINE_GARDIENS, null, HASHTAG);
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
+        register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
 
 
         // check();
