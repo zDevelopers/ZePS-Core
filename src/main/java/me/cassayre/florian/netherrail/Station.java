@@ -165,6 +165,8 @@ public enum Station
     HASHTAG(-348, 539, "HashTag", StationType.INTERSECTION_AND_PORTAL),
     ILE_ZACQUES(-480, 539, "Île de Zâcques"),
     UNKNOWN_13(-529, -853, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    UNKNOWN_14(-234, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    UNKNOWN_15(-414, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
 
 
 
@@ -202,8 +204,8 @@ public enum Station
         register(ATLANTIS, ENGORIA, null, SORCIERES, null); //
         register(ENGORIA, GORGES_GROTTES, null, ATLANTIS, null); //
         register(GORGES_GROTTES, GHAST, null, ENGORIA, null); //
-        register(BOREE, KERSUB, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
-        register(KERSUB, null, null, BOREE, null); //
+        register(BOREE, UNKNOWN_14, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
+        register(KERSUB, UNKNOWN_15, null, null, null); //
         register(GHAST, UNKNOWN_12, PIC_ASSAUT, GORGES_GROTTES, MOREA);
         register(MOREA, null, GHAST, null, CARBONE); //
         register(PIC_ASSAUT, ILE_FLEURS, FALAISIE, null, GHAST);
@@ -325,6 +327,8 @@ public enum Station
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
+        register(UNKNOWN_14, null, null, BOREE, UNKNOWN_15);
+        register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
 
 
         // check();
