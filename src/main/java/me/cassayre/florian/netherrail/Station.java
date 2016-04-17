@@ -95,7 +95,7 @@ public enum Station
     PICS_PRECIPICES(-234, -1183, "Pics et précipices"),
     TECI_TARZAN(294, -637, "La téci d'Tarzan"),
     CARTOUME(294, -604, "Cartoume", StationType.INTERSECTION_AND_PORTAL),
-    VENICE(294, -529, "Venice"),
+    VENICE(294, -529, "Venice", StationType.INTERSECTION_AND_PORTAL),
     PROJETZ(30, -613, "ProjetZ", StationType.INTERSECTION_AND_PORTAL),
     UNKNOWN_2(30, -408, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     VILLAGE_MAYA(30, -318, "Village Maya", StationType.INTERSECTION_AND_PORTAL),
@@ -157,7 +157,7 @@ public enum Station
     UNKNOWN_12(-341, -1208, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     USINE_OR(-527, -1208, "Usine à or et à XP"),
     POSEIDOPOLIS_EST(540, 251, "Poséidopolis Est", StationType.INTERSECTION_ONLY),
-    NOT_FINISHED_4(540, 539, "En travaux", StationType.INTERSECTION_ONLY, false, true),
+    SUDET(540, 539, "Sudet", StationType.INTERSECTION_ONLY, false, false),
     CARDINALE_EST(708, 539, "Cardinale Est", StationType.INTERSECTION_AND_PORTAL),
     SURET(540, 600, "Suret", StationType.INTERSECTION_AND_PORTAL),
     USINE_GARDIENS(426, 539, "Usine à gardiens", StationType.INTERSECTION_AND_PORTAL),
@@ -318,11 +318,11 @@ public enum Station
         register(BLAZES_POINT, null, null, CIUDAD, null);
         register(UNKNOWN_12, null, null, GHAST, USINE_OR);
         register(USINE_OR, null, UNKNOWN_12, null, null);
-        register(POSEIDOPOLIS_EST, MELBURNE, null, NOT_FINISHED_4, null);
-        register(NOT_FINISHED_4, POSEIDOPOLIS_EST, CARDINALE_EST, SURET, USINE_GARDIENS);
-        register(CARDINALE_EST, null, null, null, NOT_FINISHED_4);
-        register(SURET, NOT_FINISHED_4, null, null, null);
-        register(USINE_GARDIENS, null, NOT_FINISHED_4, null, FORTERESSE_MYSTERIEUSE);
+        register(POSEIDOPOLIS_EST, MELBURNE, null, SUDET, null);
+        register(SUDET, POSEIDOPOLIS_EST, CARDINALE_EST, SURET, USINE_GARDIENS);
+        register(CARDINALE_EST, null, null, null, SUDET);
+        register(SURET, SUDET, null, null, null);
+        register(USINE_GARDIENS, null, SUDET, null, FORTERESSE_MYSTERIEUSE);
         register(FORTERESSE_MYSTERIEUSE, null, USINE_GARDIENS, null, HASHTAG);
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
