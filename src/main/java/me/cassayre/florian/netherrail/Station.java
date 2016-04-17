@@ -51,10 +51,8 @@ public enum Station
     WITHER(-234, -1232, "Lande du Wither", StationType.INTERSECTION_AND_PORTAL),
     CREVASSES(-234, -1315, "Croisée des crevasses"),
     LAC_AMOUREUX(-234, -1351, "Lac des amoureux"),
-    NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
     SEPTENTRION(30, -1436, "Septentrion", StationType.INTERSECTION_AND_PORTAL),
     TENTACLES(206, -1436, "Tentaclès", StationType.INTERSECTION_AND_PORTAL),
-    TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
     MESAPLAYA(30, -1278, "Mesaplaya", StationType.INTERSECTION_AND_PORTAL),
     RIVE_BLANCHE(30, -1207, "Rive Blanche", StationType.INTERSECTION_AND_PORTAL),
     FALAISIE(30, -1069, "Falaisie", StationType.INTERSECTION_ONLY),
@@ -169,6 +167,8 @@ public enum Station
     UNKNOWN_13(-529, -853, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_14(-234, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_15(-414, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
+    NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
     KAAMELOTT(-234, -1454, "Kaamelott", StationType.PORTAL_ONLY),
     POMMACROBATICS(-234, -1604, "PommAcrobatics", StationType.PORTAL_ONLY),
 
@@ -334,6 +334,7 @@ public enum Station
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
         register(UNKNOWN_14, null, null, POMMACROBATICS, UNKNOWN_15);
         register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
+        register(NOT_FINISHED_4, null, null, SEPTENTRION, null);
 
 
         // check();
