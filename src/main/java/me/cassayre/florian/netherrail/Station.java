@@ -178,8 +178,9 @@ public enum Station
     ISLA_PENA(-431, -702, "Isla Pena"),
     TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
     NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
-    KAAMELOTT(-234, -1454, "Kaamelott", StationType.PORTAL_ONLY),
-    POMMACROBATICS(-234, -1604, "PommAcrobatics", StationType.PORTAL_ONLY),
+    KAAMELOTT(-234, -1454, "Kaamelott"),
+    POMMACROBATICS(-234, -1604, "PommAcrobatics"),
+    CHEZ_NAGAIWA(-234, -1706, "Chez Nagaiwa")
 
 
 
@@ -217,7 +218,8 @@ public enum Station
         register(GORGES_GROTTES, GHAST, null, ENGORIA, null); //
         register(BOREE, KAAMELOTT, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
         register(KAAMELOTT, POMMACROBATICS, null, BOREE, null); //
-        register(POMMACROBATICS, KAAMELOTT, null, UNKNOWN_14, null); //
+        register(POMMACROBATICS, KAAMELOTT, null, CHEZ_NAGAIWA, null); //
+        register(CHEZ_NAGAIWA, POMMACROBATICS, null, UNKNOWN_14, null); //
         register(KERSUB, UNKNOWN_15, null, null, null); //
         register(GHAST, UNKNOWN_12, PIC_ASSAUT, GORGES_GROTTES, MOREA);
         register(MOREA, null, GHAST, null, CARBONE); //
@@ -341,7 +343,7 @@ public enum Station
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
-        register(UNKNOWN_14, null, null, POMMACROBATICS, UNKNOWN_15);
+        register(UNKNOWN_14, null, null, CHEZ_NAGAIWA, UNKNOWN_15);
         register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
         register(ILE_VOLCANIQUE, FALLEN_KINGDOM, null, OCEAN_GAUCHE, null);
         register(FJORD_SUD, FJORD_CENTRAL, null, ZIG_ZAG, null);
