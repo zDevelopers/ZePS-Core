@@ -53,6 +53,7 @@ public enum Station
     LAC_AMOUREUX(-234, -1351, "Lac des amoureux"),
     SEPTENTRION(30, -1436, "Septentrion", StationType.INTERSECTION_AND_PORTAL),
     TENTACLES(206, -1436, "Tentaclès", StationType.INTERSECTION_AND_PORTAL),
+    TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
     MESAPLAYA(30, -1278, "Mesaplaya", StationType.INTERSECTION_AND_PORTAL),
     RIVE_BLANCHE(30, -1207, "Rive Blanche", StationType.INTERSECTION_AND_PORTAL),
     FALAISIE(30, -1069, "Falaisie", StationType.INTERSECTION_ONLY),
@@ -213,8 +214,9 @@ public enum Station
         register(WITHER, CREVASSES, null, PICS_PRECIPICES, null); //
         register(CREVASSES, LAC_AMOUREUX, null, WITHER, null); //
         register(LAC_AMOUREUX, BOREE, null, CREVASSES, null); //
-        register(SEPTENTRION, null, TENTACLES, MESAPLAYA, BOREE); //
-        register(TENTACLES, null, NORDET, null, SEPTENTRION); //
+        register(SEPTENTRION, null, TENTACLES_PORT, MESAPLAYA, BOREE); //
+        register(TENTACLES_PORT, null, TENTACLES, null, SEPTENTRION); //
+        register(TENTACLES, null, NORDET, null, TENTACLES_PORT); //
         register(MESAPLAYA, SEPTENTRION, null, RIVE_BLANCHE, null); //
         register(RIVE_BLANCHE, MESAPLAYA, null, FALAISIE, null); //
         register(FALAISIE, RIVE_BLANCHE, TUX, POINT_CENTRAL, PIC_ASSAUT);
