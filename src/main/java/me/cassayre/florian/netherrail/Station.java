@@ -95,7 +95,7 @@ public enum Station
     PICS_PRECIPICES(-234, -1183, "Pics et précipices"),
     TECI_TARZAN(294, -637, "La téci d'Tarzan"),
     CARTOUME(294, -604, "Cartoume", StationType.INTERSECTION_AND_PORTAL),
-    VENICE(294, -529, "Venice"),
+    VENICE(294, -529, "Venice", StationType.INTERSECTION_AND_PORTAL),
     PROJETZ(30, -613, "ProjetZ", StationType.INTERSECTION_AND_PORTAL),
     UNKNOWN_2(30, -408, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     VILLAGE_MAYA(30, -318, "Village Maya"),
@@ -157,7 +157,7 @@ public enum Station
     UNKNOWN_12(-341, -1208, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     USINE_OR(-527, -1208, "Usine à or et à XP"),
     POSEIDOPOLIS_EST(540, 251, "Poséidopolis Est", StationType.INTERSECTION_ONLY),
-    NOT_FINISHED_4(540, 539, "En travaux", StationType.INTERSECTION_ONLY, false, true),
+    SUDET(540, 539, "Sudet", StationType.INTERSECTION_ONLY, false, false),
     CARDINALE_EST(708, 539, "Cardinale Est", StationType.INTERSECTION_AND_PORTAL),
     SURET(540, 600, "Suret", StationType.INTERSECTION_AND_PORTAL),
     USINE_GARDIENS(426, 539, "Usine à gardiens", StationType.INTERSECTION_AND_PORTAL),
@@ -176,8 +176,10 @@ public enum Station
     CHEZ_CARANDOOM(-529, -564, "Chez Carandoom"),
     CHEZ_CANTIN(-529, -403, "Chez Cantin"),
     ISLA_PENA(-431, -702, "Isla Pena"),
-
-
+    TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
+    NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
+    KAAMELOTT(-234, -1454, "Kaamelott", StationType.PORTAL_ONLY),
+    POMMACROBATICS(-234, -1604, "PommAcrobatics", StationType.PORTAL_ONLY),
 
 
 
@@ -213,7 +215,9 @@ public enum Station
         register(ATLANTIS, ENGORIA, null, SORCIERES, null); //
         register(ENGORIA, GORGES_GROTTES, null, ATLANTIS, null); //
         register(GORGES_GROTTES, GHAST, null, ENGORIA, null); //
-        register(BOREE, UNKNOWN_14, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
+        register(BOREE, KAAMELOTT, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
+        register(KAAMELOTT, POMMACROBATICS, null, BOREE, null); //
+        register(POMMACROBATICS, KAAMELOTT, null, UNKNOWN_14, null); //
         register(KERSUB, UNKNOWN_15, null, null, null); //
         register(GHAST, UNKNOWN_12, PIC_ASSAUT, GORGES_GROTTES, MOREA);
         register(MOREA, null, GHAST, null, CARBONE); //
@@ -222,8 +226,9 @@ public enum Station
         register(WITHER, CREVASSES, null, PICS_PRECIPICES, null); //
         register(CREVASSES, LAC_AMOUREUX, null, WITHER, null); //
         register(LAC_AMOUREUX, BOREE, null, CREVASSES, null); //
-        register(SEPTENTRION, null, TENTACLES, MESAPLAYA, BOREE); //
-        register(TENTACLES, null, NORDET, null, SEPTENTRION); //
+        register(SEPTENTRION, NOT_FINISHED_4, TENTACLES_PORT, MESAPLAYA, BOREE); //
+        register(TENTACLES_PORT, null, TENTACLES, null, SEPTENTRION); //
+        register(TENTACLES, null, NORDET, null, TENTACLES_PORT); //
         register(MESAPLAYA, SEPTENTRION, null, RIVE_BLANCHE, null); //
         register(RIVE_BLANCHE, MESAPLAYA, null, FALAISIE, null); //
         register(FALAISIE, RIVE_BLANCHE, TUX, POINT_CENTRAL, PIC_ASSAUT);
@@ -327,16 +332,16 @@ public enum Station
         register(BLAZES_POINT, null, null, CIUDAD, null);
         register(UNKNOWN_12, null, null, GHAST, USINE_OR);
         register(USINE_OR, null, UNKNOWN_12, null, null);
-        register(POSEIDOPOLIS_EST, MELBURNE, null, NOT_FINISHED_4, null);
-        register(NOT_FINISHED_4, POSEIDOPOLIS_EST, CARDINALE_EST, SURET, USINE_GARDIENS);
-        register(CARDINALE_EST, null, null, null, NOT_FINISHED_4);
-        register(SURET, NOT_FINISHED_4, null, null, null);
-        register(USINE_GARDIENS, null, NOT_FINISHED_4, null, FORTERESSE_MYSTERIEUSE);
+        register(POSEIDOPOLIS_EST, MELBURNE, null, SUDET, null);
+        register(SUDET, POSEIDOPOLIS_EST, CARDINALE_EST, SURET, USINE_GARDIENS);
+        register(CARDINALE_EST, null, null, null, SUDET);
+        register(SURET, SUDET, null, null, null);
+        register(USINE_GARDIENS, null, SUDET, null, FORTERESSE_MYSTERIEUSE);
         register(FORTERESSE_MYSTERIEUSE, null, USINE_GARDIENS, null, HASHTAG);
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
-        register(UNKNOWN_14, null, null, BOREE, UNKNOWN_15);
+        register(UNKNOWN_14, null, null, POMMACROBATICS, UNKNOWN_15);
         register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
         register(ILE_VOLCANIQUE, FALLEN_KINGDOM, null, OCEAN_GAUCHE, null);
         register(FJORD_SUD, FJORD_CENTRAL, null, ZIG_ZAG, null);
@@ -347,8 +352,7 @@ public enum Station
         register(CHEZ_CARANDOOM, PEPINIERE_EST, null, ISLA_NUBLAR, null);
         register(CHEZ_CANTIN, ISLA_NUBLAR, null, GLACIER, null);
         register(ISLA_PENA, null, RESERVE, null, ZIG_ZAG);
-
-
+        register(NOT_FINISHED_4, null, null, SEPTENTRION, null);
 
 
         // check();
