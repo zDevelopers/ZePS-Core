@@ -51,6 +51,7 @@ public enum Station
     WITHER(-234, -1232, "Lande du Wither", StationType.INTERSECTION_AND_PORTAL),
     CREVASSES(-234, -1315, "Croisée des crevasses"),
     LAC_AMOUREUX(-234, -1351, "Lac des amoureux"),
+    NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
     SEPTENTRION(30, -1436, "Septentrion", StationType.INTERSECTION_AND_PORTAL),
     TENTACLES(206, -1436, "Tentaclès", StationType.INTERSECTION_AND_PORTAL),
     TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
@@ -214,7 +215,7 @@ public enum Station
         register(WITHER, CREVASSES, null, PICS_PRECIPICES, null); //
         register(CREVASSES, LAC_AMOUREUX, null, WITHER, null); //
         register(LAC_AMOUREUX, BOREE, null, CREVASSES, null); //
-        register(SEPTENTRION, null, TENTACLES_PORT, MESAPLAYA, BOREE); //
+        register(SEPTENTRION, NOT_FINISHED_4, TENTACLES_PORT, MESAPLAYA, BOREE); //
         register(TENTACLES_PORT, null, TENTACLES, null, SEPTENTRION); //
         register(TENTACLES, null, NORDET, null, TENTACLES_PORT); //
         register(MESAPLAYA, SEPTENTRION, null, RIVE_BLANCHE, null); //
