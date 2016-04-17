@@ -33,7 +33,7 @@ public enum Station
     GARDIENS(-413, -1436, "Chute de gardiens"),
     FORET_COUVERTE(-570, -1129, "Forêt couverte et Marais montagneux"),
     MOINTAGNE(-714, -397, "Mointagne"),
-    ISLA_NUBAR(-529, -520, "Isla Nublar"),
+    ISLA_NUBLAR(-529, -520, "Isla Nublar"),
     COLLINE_BOULEAUX(-485, -853, "Colline des bouleaux géants"),
     AEROPORT(-436, -853, "Aéroport"),
     SOURCE(-419, -853, "Source miraculeuse", StationType.INTERSECTION_AND_PORTAL),
@@ -45,9 +45,9 @@ public enum Station
     BOREE(-234, -1436, "Borée", StationType.INTERSECTION_ONLY),
     KERSUB(-414, -1700, "Kersub", StationType.INTERSECTION_AND_PORTAL),
     GHAST(-341, -1069, "Ghast taquin", StationType.INTERSECTION_ONLY),
-    MOREA(-473, -1069, "Iles de la Moréa"),
+    MOREA(-473, -1069, "Îles de la Moréa"),
     PIC_ASSAUT(-234, -1069, "Pic Assaut", StationType.INTERSECTION_ONLY),
-    ILE_FLEURS(-234, -1130, "Ile aux fleurs"),
+    ILE_FLEURS(-234, -1130, "Île aux fleurs"),
     WITHER(-234, -1232, "Lande du Wither", StationType.INTERSECTION_AND_PORTAL),
     CREVASSES(-234, -1315, "Croisée des crevasses"),
     LAC_AMOUREUX(-234, -1351, "Lac des amoureux"),
@@ -98,7 +98,7 @@ public enum Station
     VENICE(294, -529, "Venice"),
     PROJETZ(30, -613, "ProjetZ", StationType.INTERSECTION_AND_PORTAL),
     UNKNOWN_2(30, -408, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
-    VILLAGE_MAYA(30, -318, "Village Maya", StationType.INTERSECTION_AND_PORTAL),
+    VILLAGE_MAYA(30, -318, "Village Maya"),
     AIGUILLAGE_BAZAR(30, -301, "Aiguillage du Bazar bizarre", StationType.INTERSECTION_ONLY),
     BAZAR(-113, -301, "Bazar bizarre", StationType.INTERSECTION_AND_PORTAL),
     WALL_STREET(-144, -301, "Wall Street"),
@@ -109,7 +109,7 @@ public enum Station
     ETHERNIA(259, -271, "Ethernia", StationType.INTERSECTION_AND_PORTAL),
     CART_TOON(540, -260, "Cart Toon", StationType.INTERSECTION_ONLY),
     SPERANZA(518, -702, "Sperenza"),
-    ILE_PRISTINE(540, -672, "Ile Pristine"),
+    ILE_PRISTINE(540, -672, "Île Pristine"),
     GOULAG(582, -260, "Goulag et Usine à fer", StationType.INTERSECTION_AND_PORTAL),
     HALDA(684, -260, "Halda", StationType.INTERSECTION_AND_PORTAL),
     TASSE(714, -260, "La tasse", StationType.INTERSECTION_AND_PORTAL),
@@ -130,7 +130,7 @@ public enum Station
     COIN_NATURISTES(93, -84, "Le coin des naturistes"),
     CHEZ_Z(30, -65, "Chez Z"),
     VILLAGE_ELFIQUE(30, -54, "Village elfique"),
-    FORTERESSE_2(30, -41, "Foreteresse 2"),
+    FORTERESSE_2(30, -41, "Forteresse 2"),
     FLANGORIA(30, -24, "Flangoria"),
     ATTRACTION(30, -3, "Attractions"),
     UZINE_COCHON(30, 23, "UZine à cochons"),
@@ -167,6 +167,15 @@ public enum Station
     UNKNOWN_13(-529, -853, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_14(-234, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_15(-414, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    ILE_VOLCANIQUE(-714, 384, "Île volcanique"),
+    FJORD_SUD(-529, -763, "Fjord Sud"),
+    FJORD_CENTRAL(-529, -786, "Fjord Central"),
+    FJORD_NORD(-529, -795, "Fjord Nord"),
+    FLEURS_CREVASSES(-636, -823, "Des fleurs et des crevasses"),
+    ISLA_SOMA(-529, -680, "Isla Soma"),
+    CHEZ_CARANDOOM(-529, -564, "Chez Carandoom"),
+    CHEZ_CANTIN(-529, -403, "Chez Cantin"),
+    ISLA_PENA(-431, -702, "Isla Pena"),
 
 
 
@@ -177,16 +186,16 @@ public enum Station
     static
     {
         register(NOUVEA, FLEURS, ZIG_ZAG, PEPINIERE_OUEST, null); //
-        register(ZIG_ZAG, FJORDS, RESERVE, PEPINIERE_EST, NOUVEA); //
+        register(ZIG_ZAG, FJORD_SUD, ISLA_PENA, ISLA_SOMA, NOUVEA); //
         register(PEPINIERE_OUEST, NOUVEA, null, MOINTAGNE, null); //
-        register(FJORDS, UNKNOWN_13, null, ZIG_ZAG, FLEURS); //
-        register(FLEURS, VERTICALE, FJORDS, NOUVEA, null); //
-        register(PEPINIERE_EST, ZIG_ZAG, null, ISLA_NUBAR, null); //
+        register(FJORDS, UNKNOWN_13, null, FJORD_NORD, FLEURS_CREVASSES); //
+        register(FLEURS, VERTICALE, FLEURS_CREVASSES, NOUVEA, null); //
+        register(PEPINIERE_EST, ISLA_SOMA, null, CHEZ_CARANDOOM, null); //
         register(VERTICALE, KRAVEN, CARBONE, FLEURS, UZINE); //
         register(UZINE, null, VERTICALE, null, null); //
         register(CARBONE, FORET_COUVERTE, MOREA, SIGICOAL_TITAN, VERTICALE); //
         register(SIGICOAL_TITAN, CARBONE, null, null, null); //
-        register(RESERVE, ELERIA, ACADEMIE, null, ZIG_ZAG);
+        register(RESERVE, ELERIA, ACADEMIE, null, ISLA_PENA);
         register(KRAVEN, CHESNATOWN, null, VERTICALE, null); //
         register(CHESNATOWN, SEPTENTRION_OCCIDENTAL, null, KRAVEN, null); //
         register(SEPTENTRION_OCCIDENTAL, null, HURLENEIGE, CHESNATOWN, PIC_MARECAGE); //
@@ -195,7 +204,7 @@ public enum Station
         register(GARDIENS, null, BOREE, null, HURLENEIGE); //
         register(FORET_COUVERTE, null, null, CARBONE, null); //
         register(MOINTAGNE, PEPINIERE_OUEST, null, UNKNOWN_1, null);
-        register(ISLA_NUBAR, PEPINIERE_EST, null, GLACIER, null); //
+        register(ISLA_NUBLAR, CHEZ_CARANDOOM, null, CHEZ_CANTIN, null); //
         register(COLLINE_BOULEAUX, null, AEROPORT, null, UNKNOWN_13); //
         register(AEROPORT, null, SOURCE, null, COLLINE_BOULEAUX); //
         register(SOURCE, null, null, null, AEROPORT); //
@@ -228,7 +237,7 @@ public enum Station
         register(MONTAGNE_SOLITAIRE, POUTLARD, null, BASE_MILITAIRE_MEUDON, null); //
         register(POUTLARD, NORDET, null, MONTAGNE_SOLITAIRE, null); //
         register(NORDET, null, null, POUTLARD, TENTACLES);
-        register(GLACIER, new Station[] {ISLA_NUBAR, null, NOT_FINISHED_1, UNKNOWN_1}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING});
+        register(GLACIER, new Station[] {ISLA_NUBLAR, null, NOT_FINISHED_1, UNKNOWN_1}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING});
         register(UNKNOWN_1, new Station[] {MOINTAGNE, GLACIER, NOT_FINISHED_2, null}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL});
         register(NOT_FINISHED_1, GLACIER, WALL_STREET, SOMONITES, NOT_FINISHED_2);
         register(NOT_FINISHED_2, UNKNOWN_1, NOT_FINISHED_1, BIRDY, null);
@@ -238,8 +247,8 @@ public enum Station
         register(VILLAGE_CORROMPU, null, PERE_MORIEL, null, GRAND_OUEST); //
         register(PERE_MORIEL, null, SOMONITES, null, VILLAGE_CORROMPU); //
         register(SOMONITES, NOT_FINISHED_1, CIUDAD, KERLAM, PERE_MORIEL);
-        register(FALLEN_KINGDOM, GRAND_OUEST, null, OCEAN_GAUCHE, null); //
-        register(OCEAN_GAUCHE, FALLEN_KINGDOM, DEPOT, null, NAILA); //
+        register(FALLEN_KINGDOM, GRAND_OUEST, null, ILE_VOLCANIQUE, null); //
+        register(OCEAN_GAUCHE, ILE_VOLCANIQUE, DEPOT, null, NAILA); //
         register(NAILA, null, OCEAN_GAUCHE, null, null); //
         register(DEPOT, KERLAM, ILE_ZACQUES, GUET, OCEAN_GAUCHE);
         register(KERLAM, SOMONITES, null, DEPOT, null); //
@@ -329,6 +338,17 @@ public enum Station
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
         register(UNKNOWN_14, null, null, BOREE, UNKNOWN_15);
         register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
+        register(ILE_VOLCANIQUE, FALLEN_KINGDOM, null, OCEAN_GAUCHE, null);
+        register(FJORD_SUD, FJORD_CENTRAL, null, ZIG_ZAG, null);
+        register(FJORD_CENTRAL, FJORD_NORD, null, FJORD_SUD, null);
+        register(FJORD_NORD, FJORDS, null, FJORD_CENTRAL, null);
+        register(FLEURS_CREVASSES, null, FJORDS, null, FLEURS);
+        register(ISLA_SOMA, ZIG_ZAG, null, PEPINIERE_EST, null);
+        register(CHEZ_CARANDOOM, PEPINIERE_EST, null, ISLA_NUBLAR, null);
+        register(CHEZ_CANTIN, ISLA_NUBLAR, null, GLACIER, null);
+        register(ISLA_PENA, null, RESERVE, null, ZIG_ZAG);
+
+
 
 
         // check();
@@ -641,6 +661,6 @@ class StationComparator implements Comparator<Station>
 {
     @Override
     public int compare(Station station1, Station station2) {
-        return station1.toString().compareTo(station2.toString());
+        return Utils.stripAccents(station1.toString()).compareTo(Utils.stripAccents(station2.toString()));
     }
 }
