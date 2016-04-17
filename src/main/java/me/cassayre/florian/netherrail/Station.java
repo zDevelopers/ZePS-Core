@@ -169,8 +169,8 @@ public enum Station
     UNKNOWN_13(-529, -853, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_14(-234, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     UNKNOWN_15(-414, -1740, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
-
-
+    KAAMELOTT(-234, -1454, "Kaamelott", StationType.PORTAL_ONLY),
+    POMMACROBATICS(-234, -1604, "PommAcrobatics", StationType.PORTAL_ONLY),
 
 
 
@@ -206,7 +206,9 @@ public enum Station
         register(ATLANTIS, ENGORIA, null, SORCIERES, null); //
         register(ENGORIA, GORGES_GROTTES, null, ATLANTIS, null); //
         register(GORGES_GROTTES, GHAST, null, ENGORIA, null); //
-        register(BOREE, UNKNOWN_14, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
+        register(BOREE, KAAMELOTT, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
+        register(KAAMELOTT, POMMACROBATICS, null, BOREE, null); //
+        register(POMMACROBATICS, KAAMELOTT, null, UNKNOWN_14, null); //
         register(KERSUB, UNKNOWN_15, null, null, null); //
         register(GHAST, UNKNOWN_12, PIC_ASSAUT, GORGES_GROTTES, MOREA);
         register(MOREA, null, GHAST, null, CARBONE); //
@@ -330,7 +332,7 @@ public enum Station
         register(HASHTAG, null, FORTERESSE_MYSTERIEUSE, null, ILE_ZACQUES);
         register(ILE_ZACQUES, null, HASHTAG, null, DEPOT);
         register(UNKNOWN_13, null, COLLINE_BOULEAUX, FJORDS, null);
-        register(UNKNOWN_14, null, null, BOREE, UNKNOWN_15);
+        register(UNKNOWN_14, null, null, POMMACROBATICS, UNKNOWN_15);
         register(UNKNOWN_15, null, UNKNOWN_14, KERSUB, null);
 
 
