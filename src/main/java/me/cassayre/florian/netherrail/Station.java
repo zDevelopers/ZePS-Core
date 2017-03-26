@@ -41,7 +41,7 @@ public enum Station
     SORCIERES(-341, -871, "Usine à sorcières"),
     ATLANTIS(-341, -913, "Atlantis", StationType.INTERSECTION_AND_PORTAL),
     ENGORIA(-341, -961, "Engoria"),
-    GORGES_GROTTES(-341, -1015, "Jungle et montagne"),
+    DOGGO(-341, -1015, "République Souterraine Doggo"),
     BOREE(-234, -1436, "Borée", StationType.INTERSECTION_ONLY),
     KERSUB(-414, -1700, "Kersub", StationType.INTERSECTION_AND_PORTAL),
     GHAST(-341, -1069, "Ghast taquin", StationType.INTERSECTION_ONLY),
@@ -81,6 +81,7 @@ public enum Station
     NAILA(-804, 539, "Naila"),
     DEPOT(-529, 539, "Dépôt", StationType.INTERSECTION_ONLY),
     KERLAM(-529, 421, "Kerlam", StationType.INTERSECTION_AND_PORTAL),
+    ALEXANDRIE(-529, 292, "Alexandrie", StationType.INTERSECTION_AND_PORTAL),
     GUET(-529, 598, "Tour de guet"),
     ACADEMIE(-219, -702, "Académie des Sages"),
     BLAZE_ROAD(-145, -702, "Blaze Road", StationType.INTERSECTION_ONLY),
@@ -93,6 +94,7 @@ public enum Station
     COL_AIGUES(540, -780, "Col Aigues", StationType.INTERSECTION_ONLY),
     AIGUES_CHAUDES(668, -780, "Aigues chaudes", StationType.INTERSECTION_AND_PORTAL),
     PICS_PRECIPICES(-234, -1183, "Pics et précipices"),
+    VYNCIS(294, -661, "Vyncis", StationType.INTERSECTION_AND_PORTAL),
     TECI_TARZAN(294, -637, "La téci d'Tarzan"),
     CARTOUME(294, -604, "Cartoume", StationType.INTERSECTION_AND_PORTAL),
     VENICE(294, -529, "Venice", StationType.INTERSECTION_AND_PORTAL),
@@ -146,7 +148,11 @@ public enum Station
     GRANDE_LOTTERIE(-73, 47, "La grande lotterie"),
     FORTERESSE_1(-110, 47, "Forteresse 1"),
     OCTOPUSSY(-129, 47, "Octopussy", StationType.INTERSECTION_AND_PORTAL),
-    AIGUILLAGE_CHATEAUNOIR(-177, 47, "Aiguillage Châteaunoir", StationType.INTERSECTION_ONLY),
+    AIGUILLAGE_CHATEAUNOIR(-251, 47, "Aiguillage Château Noir", StationType.INTERSECTION_ONLY),
+    CARROUSEL_HOLERIBUS(-251, 254, "Carrousel Holeribus"),
+    UNKNOWN_16(-251, 270, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    UNKNOWN_17(-184, 270, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    CHATEAU_NOIR(-184, 293, "Château Noir", StationType.INTERSECTION_AND_PORTAL),
     CHATEAU_GLACES(-242, 47, "Château des glaces"),
     ARRAKIS(-252, 47, "Arrakis"),
     PIXEL_ART(-286, 47, "Pixel Art", StationType.INTERSECTION_ONLY),
@@ -156,7 +162,7 @@ public enum Station
     BLAZES_POINT(-378, -152, "Blazes point"),
     UNKNOWN_12(-341, -1208, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     USINE_OR(-527, -1208, "Usine à or et à XP"),
-    POSEIDOPOLIS_EST(540, 251, "Poséidopolis Est", StationType.INTERSECTION_ONLY),
+    POSEIDOPOLIS_EST(540, 251, "Poseidopolis Est", StationType.INTERSECTION_ONLY),
     SUDET(540, 539, "Sudet", StationType.INTERSECTION_ONLY, false, false),
     CARDINALE_EST(708, 539, "Cardinale Est", StationType.INTERSECTION_AND_PORTAL),
     SURET(540, 600, "Suret", StationType.INTERSECTION_AND_PORTAL),
@@ -176,7 +182,7 @@ public enum Station
     CHEZ_CARANDOOM(-529, -564, "Chez Carandoom"),
     CHEZ_CANTIN(-529, -403, "Chez Cantin"),
     ISLA_PENA(-431, -702, "Isla Pena"),
-    TENTACLES_PORT(158, -1436, "Port de Tentaclès", StationType.INTERSECTION_AND_PORTAL),
+    TENTACLES_PORT(158, -1436, "Port-Tentaclès", StationType.INTERSECTION_AND_PORTAL),
     NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
     KAAMELOTT(-234, -1454, "Kaamelott"),
     POMMACROBATICS(-234, -1604, "PommAcrobatics"),
@@ -214,14 +220,14 @@ public enum Station
         register(ELERIA, SORCIERES, null, RESERVE, null); //
         register(SORCIERES, ATLANTIS, null, ELERIA, null); //
         register(ATLANTIS, ENGORIA, null, SORCIERES, null); //
-        register(ENGORIA, GORGES_GROTTES, null, ATLANTIS, null); //
-        register(GORGES_GROTTES, GHAST, null, ENGORIA, null); //
+        register(ENGORIA, DOGGO, null, ATLANTIS, null); //
+        register(DOGGO, GHAST, null, ENGORIA, null); //
         register(BOREE, KAAMELOTT, SEPTENTRION, LAC_AMOUREUX, GARDIENS); //
         register(KAAMELOTT, POMMACROBATICS, null, BOREE, null); //
-        register(POMMACROBATICS, KAAMELOTT, null, CHEZ_NAGAIWA, null); //
-        register(CHEZ_NAGAIWA, POMMACROBATICS, null, UNKNOWN_14, null); //
+        register(POMMACROBATICS, CHEZ_NAGAIWA, null, KAAMELOTT, null); //
+        register(CHEZ_NAGAIWA, UNKNOWN_14, null, POMMACROBATICS, null); //
         register(KERSUB, UNKNOWN_15, null, null, null); //
-        register(GHAST, UNKNOWN_12, PIC_ASSAUT, GORGES_GROTTES, MOREA);
+        register(GHAST, UNKNOWN_12, PIC_ASSAUT, DOGGO, MOREA);
         register(MOREA, null, GHAST, null, CARBONE); //
         register(PIC_ASSAUT, ILE_FLEURS, FALAISIE, null, GHAST);
         register(ILE_FLEURS, PICS_PRECIPICES, null, PIC_ASSAUT, null); //
@@ -244,7 +250,7 @@ public enum Station
         register(MONTAGNE_SOLITAIRE, POUTLARD, null, BASE_MILITAIRE_MEUDON, null); //
         register(POUTLARD, NORDET, null, MONTAGNE_SOLITAIRE, null); //
         register(NORDET, null, null, POUTLARD, TENTACLES);
-        register(GLACIER, new Station[] {ISLA_NUBLAR, null, NOT_FINISHED_1, UNKNOWN_1}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING});
+        register(GLACIER, new Station[] {CHEZ_CANTIN, null, NOT_FINISHED_1, UNKNOWN_1}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING});
         register(UNKNOWN_1, new Station[] {MOINTAGNE, GLACIER, NOT_FINISHED_2, null}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL});
         register(NOT_FINISHED_1, GLACIER, WALL_STREET, SOMONITES, NOT_FINISHED_2);
         register(NOT_FINISHED_2, UNKNOWN_1, NOT_FINISHED_1, BIRDY, null);
@@ -253,12 +259,13 @@ public enum Station
         register(AMAZONIA, null, GRAND_OUEST, null, null); //
         register(VILLAGE_CORROMPU, null, PERE_MORIEL, null, GRAND_OUEST); //
         register(PERE_MORIEL, null, SOMONITES, null, VILLAGE_CORROMPU); //
-        register(SOMONITES, NOT_FINISHED_1, CIUDAD, KERLAM, PERE_MORIEL);
+        register(SOMONITES, NOT_FINISHED_1, CIUDAD, ALEXANDRIE, PERE_MORIEL);
         register(FALLEN_KINGDOM, GRAND_OUEST, null, ILE_VOLCANIQUE, null); //
         register(OCEAN_GAUCHE, ILE_VOLCANIQUE, DEPOT, null, NAILA); //
         register(NAILA, null, OCEAN_GAUCHE, null, null); //
         register(DEPOT, KERLAM, ILE_ZACQUES, GUET, OCEAN_GAUCHE);
-        register(KERLAM, SOMONITES, null, DEPOT, null); //
+        register(KERLAM, ALEXANDRIE, null, DEPOT, null); //
+        register(ALEXANDRIE, SOMONITES, null, KERLAM, null);
         register(ACADEMIE, null, BLAZE_ROAD, null, RESERVE);
         register(BLAZE_ROAD, null, MER_ADIEUX, null, ACADEMIE); //
         register(MER_ADIEUX, FERME_VILLAGEOIS, JONCTION, PROJETZ, BLAZE_ROAD); //
@@ -266,12 +273,13 @@ public enum Station
         register(POINT_CENTRAL, FALAISIE, null, FERME_VILLAGEOIS, null); //
         register(GUET, DEPOT, null, null, null);
         register(JONCTION, null, MARAYA, null, MER_ADIEUX); // ***
-        register(MARAYA, null, SPERANZA, TECI_TARZAN, JONCTION);
+        register(MARAYA, null, SPERANZA, VYNCIS, JONCTION);
         register(SPERANZA_PRISTINE, COL_AIGUES, null, ILE_PRISTINE, SPERANZA);
         register(COL_AIGUES, SAINT_KEHAINSYS, AIGUES_CHAUDES, SPERANZA_PRISTINE, null);
         register(AIGUES_CHAUDES, null, null, null, COL_AIGUES);
         register(PICS_PRECIPICES, WITHER, null, ILE_FLEURS, null);
-        register(TECI_TARZAN, MARAYA, null, CARTOUME, null);
+        register(VYNCIS, MARAYA, null, TECI_TARZAN, null);
+        register(TECI_TARZAN, VYNCIS, null, CARTOUME, null);
         register(CARTOUME, TECI_TARZAN, null, VENICE, null);
         register(VENICE, CARTOUME, null, null, null);
         register(PROJETZ, MER_ADIEUX, null, UNKNOWN_2, null);
@@ -324,7 +332,11 @@ public enum Station
         register(GRANDE_LOTTERIE, null, COLLINE_JAMBES, null, FORTERESSE_1);
         register(FORTERESSE_1, null, GRANDE_LOTTERIE, null, OCTOPUSSY);
         register(OCTOPUSSY, null, FORTERESSE_1, null, AIGUILLAGE_CHATEAUNOIR);
-        register(AIGUILLAGE_CHATEAUNOIR, null, OCTOPUSSY, null, CHATEAU_GLACES);
+        register(AIGUILLAGE_CHATEAUNOIR, null, OCTOPUSSY, CARROUSEL_HOLERIBUS, CHATEAU_GLACES);
+        register(CARROUSEL_HOLERIBUS, AIGUILLAGE_CHATEAUNOIR, null, UNKNOWN_16, null);
+        register(UNKNOWN_16, CARROUSEL_HOLERIBUS, UNKNOWN_17, null, null);
+        register(UNKNOWN_17, null, null, CHATEAU_NOIR, UNKNOWN_16);
+        register(CHATEAU_NOIR, UNKNOWN_17, null, null, null);
         register(CHATEAU_GLACES, null, AIGUILLAGE_CHATEAUNOIR, null, ARRAKIS);
         register(ARRAKIS, null, CHATEAU_GLACES, null, PIXEL_ART);
         register(PIXEL_ART, MUSEE_PIXEL, ARRAKIS, null, BANANEROSE);

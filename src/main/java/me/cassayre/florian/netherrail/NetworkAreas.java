@@ -19,11 +19,13 @@ public class NetworkAreas
         registerX(new Color(221, 72, 70), -378, -286, -40);
         registerX(new Color(94, 116, 255), -341);
         registerX(new Color(110, 244, 5), -414, -234);
+        registerX(new Color(255, 116, 8), -251, -184);
         registerX(new Color(165, 178, 255), 30, 148, 259);
         registerX(new Color(255, 170, 20), 294);
         registerX(new Color(64, 168, 186), 540);
 
         registerY(new Color(110, 176, 86), 539);
+        registerY(new Color(255, 116, 8), 270);
         registerY(new Color(221, 72, 70), 47);
         registerY(new Color(165, 178, 255), -84, -94, -120, -408);
         registerY(new Color(0, 0, 0), -260, -301, -342);
