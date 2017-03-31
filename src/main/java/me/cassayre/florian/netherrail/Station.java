@@ -453,7 +453,7 @@ public enum Station
 
         registerWalk(TOUR_INFERNALE, EURAZIE, null, null, null);
 
-         check();
+         // check();
     }
 
 
