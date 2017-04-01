@@ -11,14 +11,16 @@ public final class MapCreator
 {
     private MapCreator() {}
 
+    private static int zoomLevel = 2;
+
     private static int toImageX(int mapX)
     {
-        return (int) ((mapX + 837) / 2) * 2;
+        return (mapX + 837) / 2 * zoomLevel;
     }
 
     private static int toImageY(int mapY)
     {
-        return (int) ((mapY + 1763) / 2) * 2;
+        return (mapY + 1763) / 2 * zoomLevel;
     }
 
     /**
@@ -26,9 +28,11 @@ public final class MapCreator
      * @param location the path to save the image
      * @throws IOException
      */
-    public static void saveMap(String location) throws IOException
+    public static void saveMap(String location, int zoomLevel) throws IOException
     {
-        BufferedImage img = new BufferedImage(798 * 2, 1194 * 2, BufferedImage.TYPE_INT_ARGB);
+        MapCreator.zoomLevel = zoomLevel;
+
+        BufferedImage img = new BufferedImage(798 * zoomLevel, 1194 * zoomLevel, BufferedImage.TYPE_INT_ARGB);
 
         Graphics2D g = img.createGraphics();
 
@@ -61,7 +65,7 @@ public final class MapCreator
 
         for(Station station : Station.values())
         {
-            if(station.isIntersection())
+            if (station.isIntersection())
             {
                 g.setColor(Color.GREEN);
                 if(station.isDangerous())
@@ -73,30 +77,28 @@ public final class MapCreator
                 g.fillOval(toImageX(station.getX()) - 10, toImageY(station.getY()) - 10, 20, 20);
             }
 
-            if(station.isPortal())
+            if (station.isPortal()) g.setColor(new Color(159, 87, 209));
+            if (station.isDangerous()) g.setColor(new Color(156, 69, 108));
 
-                g.setColor(new Color(159, 87, 209));
-            if(station.isDangerous())
-                g.setColor(new Color(156, 69, 108));
-
-            if(!station.isVisible())
-                g.setColor(new Color(227, 194, 226));
+            if (!station.isVisible()) g.setColor(new Color(227, 194, 226));
 
             g.fillOval(toImageX(station.getX()) - 8, toImageY(station.getY()) - 8, 16, 16);
 
-            g.setColor(Color.DARK_GRAY);
+            if (station.isVisible())
+            {
+                g.setColor(Color.DARK_GRAY);
 
-            AffineTransform fontAT = new AffineTransform();
-            fontAT.setToScale(2, 2);
-            Font theFont = g.getFont();
-            fontAT.rotate(- Math.PI / 4.0);
-            Font theDerivedFont = theFont.deriveFont(fontAT);
-            g.setFont(theDerivedFont);
+                AffineTransform fontAT = new AffineTransform();
+                fontAT.setToScale(2, 2);
+                Font theFont = g.getFont();
+                fontAT.rotate(-Math.PI / 4.0);
+                Font theDerivedFont = theFont.deriveFont(fontAT);
+                g.setFont(theDerivedFont);
 
-            g.drawString(station.toString(), toImageX(station.getX() + 20), toImageY(station.getY()) - 20);
+                g.drawString(station.toString(), toImageX(station.getX() + 20), toImageY(station.getY()) - 20);
 
-            g.setFont(theFont);
-
+                g.setFont(theFont);
+            }
 
         }
 

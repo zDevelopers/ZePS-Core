@@ -115,7 +115,7 @@ public enum Station
     GOULAG(582, -260, "Goulag et Usine à fer", StationType.INTERSECTION_AND_PORTAL),
     HALDA(684, -260, "Halda", StationType.INTERSECTION_AND_PORTAL),
     TASSE(714, -260, "La tasse", StationType.INTERSECTION_AND_PORTAL),
-    NOT_FINISHED_3(259, 47, "Inconnue", StationType.INTERSECTION_ONLY, false, true),
+    EURAZIE(259, 47, "EuraZie", StationType.INTERSECTION_ONLY),
     SECTEUR_GHASTS(296, 47, "Secteur Ghasts", StationType.INTERSECTION_ONLY),
     CLEM(425, 47, "Secteur Clem", StationType.INTERSECTION_AND_PORTAL),
     MELBURNE(540, 47, "Melburne", StationType.INTERSECTION_ONLY),
@@ -142,19 +142,16 @@ public enum Station
     UNKNOWN_11(148, 47, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     AZIE(221, 47, "Azie", StationType.INTERSECTION_AND_PORTAL),
     SILVERISLAND(276, 47, "Silverisland"),
-    MORZAN(-40, 47, "Morzan"),
-    SMASTEN(-40, 98, "Smasten"),
     COLLINE_JAMBES(-46, 47, "La colline a des jambes"),
     GRANDE_LOTTERIE(-73, 47, "La grande lotterie"),
     FORTERESSE_1(-110, 47, "Forteresse 1"),
     OCTOPUSSY(-129, 47, "Octopussy", StationType.INTERSECTION_AND_PORTAL),
     AIGUILLAGE_CHATEAUNOIR(-251, 47, "Aiguillage Château Noir", StationType.INTERSECTION_ONLY),
     CARROUSEL_HOLERIBUS(-251, 254, "Carrousel Holeribus"),
-    UNKNOWN_16(-251, 270, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
-    UNKNOWN_17(-184, 270, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
+    UNKNOWN_17(-184, 254, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     CHATEAU_NOIR(-184, 293, "Château Noir", StationType.INTERSECTION_AND_PORTAL),
     CHATEAU_GLACES(-242, 47, "Château des glaces"),
-    ARRAKIS(-252, 47, "Arrakis"),
+    ARRAKIS(-251, 65, "Arrakis"),
     PIXEL_ART(-286, 47, "Pixel Art", StationType.INTERSECTION_ONLY),
     MUSEE_PIXEL(-286, -93, "Musée du pixel art"),
     BANANEROSE(-361, 47, "Ville de bananerose"),
@@ -186,9 +183,53 @@ public enum Station
     NOT_FINISHED_4(30, -1682, "Station inconnue", StationType.INTERSECTION_AND_PORTAL), // Portail ne menant nulle part
     KAAMELOTT(-234, -1454, "Kaamelott"),
     POMMACROBATICS(-234, -1604, "PommAcrobatics"),
-    CHEZ_NAGAIWA(-234, -1706, "Chez Nagaiwa")
+    CHEZ_NAGAIWA(-234, -1706, "Chez Nagaiwa"),
 
+    // Old foot-based network (so-called « Netherroutes »)
 
+    INTERSECT_18(30, 64, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    ADELLIA(30, 76, "Adellia"),
+    RAZIEL(30, 92, "Raziel"),
+    INTERSECT_19(30, 112, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    FORTERESSE_3(30, 128, "Forteresse 3"),
+    INTERSECT_20(30, 152, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    ARBRE_BIBLIOTHEQUE(-36, 152, "Arbre bibliothèque"),
+    SIGICOAL(30, 189, "Sigicoal III"),
+
+    MORZAN(-40, 64, "Morzan"),
+    SMASTEN(-40, 98, "Smasten"),
+    INTERSECT_21(-98, 64, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    JUNGLE_PAUMEE(-98, 117, "Jungle paumée"),
+
+    TAVERNE_BUNKER(22, 112, "Taverne Bunker"),
+    INTERSECT_22(22, 140, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    INTERSECT_23(55, 140, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    ELEVAGE_DE_MEUH(155, 140, "Élevage de Meuh"),
+    INTERSECT_24(55, 164, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    AMPHIPOLIS(128, 164, "Amphipolis"),
+    INTERSECT_25(55, 184, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    REZERVE(77, 184, "RéZerve"),
+    INTERSECT_26(55, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    INTERSECT_27(108, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    INTERSECT_28(108, 296, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    FOREST_OF_MAGIC_ISLAND(64, 296, "Forest of Magic Island"),
+    INTERSECT_29(108, 345, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    ILE_PARADISIAQUE(123, 345, "Île paradisiaque"),
+    INTERSECT_30(108, 460, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    MONTAGNES_CREUSES(108, 481, "Montagnes creuses"),
+    BAIE_HA_LONG(295, 460, "Baie d'Ha-Long", StationType.INTERSECTION_AND_PORTAL),
+    MASTER_PWEL(343, 460, "Master Pwel"),
+    STEP_31(295, 326, "Étape", StationType.INTERSECTION_ONLY, true, true),
+    STEP_32(295, 304, "Étape", StationType.INTERSECTION_ONLY, true, true),
+    FORT_BOYAUX(295, 133, "Fort Boyaux"),
+    INTERSECT_33(295, 61, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    SANATORIUM_VERT(275, 61, "Sanatorium Vert"),
+
+    INTERSECT_34(221, 74, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    SWAG_ISLAND(221, 186, "Swag island"),
+    KASTOU(186, 74, "Kastou"),
+
+    TOUR_INFERNALE(259, 164, "Tour Infernale")
 
     ;
 
@@ -291,7 +332,7 @@ public enum Station
         register(CONSTRUCTEURS, new Station[] {null, UNKNOWN_3, null, UNKNOWN_2}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING});
         register(UNKNOWN_3, null, null, UNKNOWN_4, CONSTRUCTEURS);
         register(UNKNOWN_4, UNKNOWN_3, null, ETHERNIA, AIGUILLAGE_BAZAR);
-        register(UNKNOWN_5, new Station[] {ETHERNIA, CART_TOON, NOT_FINISHED_3, null}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
+        register(UNKNOWN_5, new Station[] {ETHERNIA, CART_TOON, EURAZIE, null}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
         register(ETHERNIA, UNKNOWN_4, null, UNKNOWN_5, null);
         register(CART_TOON, ILE_PRISTINE, GOULAG, MELBURNE, UNKNOWN_5);
         register(SPERANZA, null, SPERANZA_PRISTINE, null, MARAYA);
@@ -299,8 +340,8 @@ public enum Station
         register(GOULAG, null, HALDA, null, CART_TOON);
         register(HALDA, null, TASSE, null, GOULAG);
         register(TASSE, null, null, null, HALDA);
-        register(NOT_FINISHED_3, new Station[] {UNKNOWN_5, SILVERISLAND, null, AZIE}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL}); //
-        register(SECTEUR_GHASTS, null, CLEM, null, SILVERISLAND);
+        register(EURAZIE, new Station[] {UNKNOWN_5, SILVERISLAND, TOUR_INFERNALE, AZIE}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL}); //
+        register(SECTEUR_GHASTS, new Station[] {null, CLEM, INTERSECT_33, SILVERISLAND}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
         register(CLEM, null, MELBURNE, null, SECTEUR_GHASTS);
         register(MELBURNE, CART_TOON, null, POSEIDOPOLIS_EST, CLEM);
         register(MACCRAGE, AIGUILLAGE_BAZAR, null, BALADE, null);
@@ -320,26 +361,23 @@ public enum Station
         register(FLANGORIA, FORTERESSE_2, null, ATTRACTION, null);
         register(ATTRACTION, FLANGORIA, null, UZINE_COCHON, null);
         register(UZINE_COCHON, ATTRACTION, null, VAALON, null);
-        register(VAALON, UZINE_COCHON, MOBY_DICK, null, MORZAN);
+        register(VAALON, new Station[] {UZINE_COCHON, MOBY_DICK, INTERSECT_18, COLLINE_JAMBES}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
         register(MOBY_DICK, null, AGRISUB_1, null, VAALON);
         register(AGRISUB_1, null, UNKNOWN_11, null, MOBY_DICK);
         register(UNKNOWN_11, null, AZIE, null, AGRISUB_1);
-        register(AZIE, null, NOT_FINISHED_3, null, UNKNOWN_11);
-        register(SILVERISLAND, null, SECTEUR_GHASTS, null, NOT_FINISHED_3);
-        register(MORZAN, null, VAALON, SMASTEN, COLLINE_JAMBES);
-        register(SMASTEN, MORZAN, null, null, null);
-        register(COLLINE_JAMBES, null, MORZAN, null, GRANDE_LOTTERIE);
+        register(AZIE, new Station[] {null, EURAZIE, INTERSECT_34, UNKNOWN_11}, new PathType[]{PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
+        register(SILVERISLAND, null, SECTEUR_GHASTS, null, EURAZIE);
+        register(COLLINE_JAMBES, null, VAALON, null, GRANDE_LOTTERIE);
         register(GRANDE_LOTTERIE, null, COLLINE_JAMBES, null, FORTERESSE_1);
         register(FORTERESSE_1, null, GRANDE_LOTTERIE, null, OCTOPUSSY);
-        register(OCTOPUSSY, null, FORTERESSE_1, null, AIGUILLAGE_CHATEAUNOIR);
-        register(AIGUILLAGE_CHATEAUNOIR, null, OCTOPUSSY, CARROUSEL_HOLERIBUS, CHATEAU_GLACES);
-        register(CARROUSEL_HOLERIBUS, AIGUILLAGE_CHATEAUNOIR, null, UNKNOWN_16, null);
-        register(UNKNOWN_16, CARROUSEL_HOLERIBUS, UNKNOWN_17, null, null);
-        register(UNKNOWN_17, null, null, CHATEAU_NOIR, UNKNOWN_16);
+        register(OCTOPUSSY, null, FORTERESSE_1, null, CHATEAU_GLACES);
+        register(AIGUILLAGE_CHATEAUNOIR, null, CHATEAU_GLACES, ARRAKIS, PIXEL_ART);
+        register(CARROUSEL_HOLERIBUS, ARRAKIS, UNKNOWN_17, null, null);
+        register(UNKNOWN_17, null, null, CHATEAU_NOIR, CARROUSEL_HOLERIBUS);
         register(CHATEAU_NOIR, UNKNOWN_17, null, null, null);
-        register(CHATEAU_GLACES, null, AIGUILLAGE_CHATEAUNOIR, null, ARRAKIS);
-        register(ARRAKIS, null, CHATEAU_GLACES, null, PIXEL_ART);
-        register(PIXEL_ART, MUSEE_PIXEL, ARRAKIS, null, BANANEROSE);
+        register(CHATEAU_GLACES, null, OCTOPUSSY, null, AIGUILLAGE_CHATEAUNOIR);
+        register(ARRAKIS, AIGUILLAGE_CHATEAUNOIR, null, CARROUSEL_HOLERIBUS, null);
+        register(PIXEL_ART, MUSEE_PIXEL, AIGUILLAGE_CHATEAUNOIR, null, BANANEROSE);
         register(MUSEE_PIXEL, null, null, PIXEL_ART, null);
         register(BANANEROSE, null, PIXEL_ART, null, CIUDAD);
         register(CIUDAD, BLAZES_POINT, BANANEROSE, null, SOMONITES);
@@ -368,8 +406,54 @@ public enum Station
         register(ISLA_PENA, null, RESERVE, null, ZIG_ZAG);
         register(NOT_FINISHED_4, null, null, SEPTENTRION, null);
 
+        // Old foot-based network (so-called « Netherroutes »)
 
-        // check();
+        registerWalk(INTERSECT_18, VAALON, null, ADELLIA, MORZAN);
+        registerWalk(ADELLIA, INTERSECT_18, null, RAZIEL, null);
+        registerWalk(RAZIEL, ADELLIA, null, INTERSECT_19, null);
+        registerWalk(INTERSECT_19, RAZIEL, null, FORTERESSE_3, TAVERNE_BUNKER);
+        registerWalk(FORTERESSE_3, INTERSECT_19, null, INTERSECT_20, null);
+        registerWalk(INTERSECT_20, FORTERESSE_3, null, SIGICOAL, ARBRE_BIBLIOTHEQUE);
+        registerWalk(ARBRE_BIBLIOTHEQUE, null, INTERSECT_20, null, null);
+        registerWalk(SIGICOAL, INTERSECT_20, null, null, null);
+
+        registerWalk(MORZAN, null, INTERSECT_18, SMASTEN, INTERSECT_21);
+        registerWalk(SMASTEN, MORZAN, null, null, null);
+        registerWalk(INTERSECT_21, null, MORZAN, JUNGLE_PAUMEE, null);
+        registerWalk(JUNGLE_PAUMEE, INTERSECT_21, null, null, null);
+
+        registerWalk(TAVERNE_BUNKER, null, INTERSECT_19, INTERSECT_22, null);
+        registerWalk(INTERSECT_22, TAVERNE_BUNKER, INTERSECT_23, null, null);
+        registerWalk(INTERSECT_23, null, ELEVAGE_DE_MEUH, INTERSECT_24, INTERSECT_22);
+        registerWalk(ELEVAGE_DE_MEUH, null, null, null, INTERSECT_23);
+        registerWalk(INTERSECT_24, INTERSECT_23, AMPHIPOLIS, INTERSECT_25, null);
+        registerWalk(AMPHIPOLIS, null, null, null, INTERSECT_24);
+        registerWalk(INTERSECT_25, INTERSECT_24, REZERVE, INTERSECT_26, null);
+        registerWalk(REZERVE, null, null, null, INTERSECT_25);
+        registerWalk(INTERSECT_26, INTERSECT_25, INTERSECT_27, null, null);
+        registerWalk(INTERSECT_27, null, null, INTERSECT_28, INTERSECT_26);
+        registerWalk(INTERSECT_28, INTERSECT_27, null, INTERSECT_29, FOREST_OF_MAGIC_ISLAND);
+        registerWalk(FOREST_OF_MAGIC_ISLAND, null, INTERSECT_28, null, null);
+        register(INTERSECT_29, new Station[]{INTERSECT_28, ILE_PARADISIAQUE, INTERSECT_30, null}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        registerWalk(ILE_PARADISIAQUE, null, null, null, INTERSECT_29);
+        register(INTERSECT_30, new Station[]{INTERSECT_29, BAIE_HA_LONG, MONTAGNES_CREUSES, null}, new PathType[] {PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        registerWalk(MONTAGNES_CREUSES, INTERSECT_30, null, null, null);
+
+        registerWalk(BAIE_HA_LONG, STEP_31, MASTER_PWEL, null, INTERSECT_30);
+        registerWalk(MASTER_PWEL, null, null, null, BAIE_HA_LONG);
+        register(STEP_31, new Station[]{STEP_32, null, BAIE_HA_LONG, null}, new PathType[] {PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        register(STEP_32, new Station[]{FORT_BOYAUX, null, STEP_31, null}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        registerWalk(FORT_BOYAUX, INTERSECT_33, null, STEP_32, null);
+        registerWalk(INTERSECT_33, SECTEUR_GHASTS, null, FORT_BOYAUX, SANATORIUM_VERT);
+        registerWalk(SANATORIUM_VERT, null, INTERSECT_33, null, null);
+
+        registerWalk(INTERSECT_34, AZIE, null, SWAG_ISLAND, KASTOU);
+        registerWalk(SWAG_ISLAND, INTERSECT_34, null, null, null);
+        registerWalk(KASTOU, null, INTERSECT_34, null, null);
+
+        registerWalk(TOUR_INFERNALE, EURAZIE, null, null, null);
+
+         // check();
     }
 
 
@@ -384,22 +468,22 @@ public enum Station
     private PathType[] PATH_TYPES;
     private final StationType TYPE;
 
-    private Station(final int x, final int y)
+    Station(final int x, final int y)
     {
         this(x, y, null);
     }
 
-    private Station(final int x, final int y, final String name)
+    Station(final int x, final int y, final String name)
     {
         this(x, y, name, StationType.PORTAL_ONLY);
     }
 
-    private Station(final int x, final int y, final String name, final StationType type)
+    Station(final int x, final int y, final String name, final StationType type)
     {
         this(x, y, name, type, false, false);
     }
 
-    private Station(final int x, final int y, final String name, final StationType type, final boolean isHidden, final boolean danger)
+    Station(final int x, final int y, final String name, final StationType type, final boolean isHidden, final boolean danger)
     {
         X = x;
         Y = y;
@@ -417,10 +501,15 @@ public enum Station
         register(station, stations, new PathType[]{PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL});
     }
 
+    public static void registerWalk(final Station station, final Station... stations)
+    {
+        register(station, stations, new PathType[]{PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+    }
+
     public static void register(final Station station, final Station[] stations, final PathType[] paths)
     {
         if(stations.length != STATIONS_COUNT || paths.length != STATIONS_COUNT)
-            throw new IllegalArgumentException("Arrays sizes must be 4 for " + station.name());
+            throw new IllegalArgumentException(String.format("Arrays sizes must be %s for %s", STATIONS_COUNT,  station.name()));
 
         station.SUB_STATIONS = stations;
 
@@ -672,7 +761,7 @@ enum StationType
 {
     INTERSECTION_ONLY,
     INTERSECTION_AND_PORTAL,
-    PORTAL_ONLY;
+    PORTAL_ONLY
 }
 
 class StationComparator implements Comparator<Station>
