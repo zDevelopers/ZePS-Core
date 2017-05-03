@@ -16,7 +16,8 @@ public class NetworkAreas
         registerX(new Color(255, 236, 39), -714);
         registerX(new Color(119, 98, 40), -570);
         registerX(new Color(255, 189, 206), -529);
-        registerX(new Color(221, 72, 70), -378, -286, -40);
+        registerX(new Color(255, 122, 238), -485);
+        registerX(new Color(221, 72, 70), -378, -286);
         registerX(new Color(94, 116, 255), -341);
         registerX(new Color(110, 244, 5), -414, -234);
         registerX(new Color(255, 116, 8), -251, -184);
@@ -25,7 +26,7 @@ public class NetworkAreas
         registerX(new Color(64, 168, 186), 540);
 
         registerY(new Color(110, 176, 86), 539);
-        registerY(new Color(255, 116, 8), 270);
+        registerY(new Color(255, 116, 8), 254);
         registerY(new Color(221, 72, 70), 47);
         registerY(new Color(165, 178, 255), -84, -94, -120, -408);
         registerY(new Color(0, 0, 0), -260, -301, -342);
@@ -131,9 +132,9 @@ class Area
         COLOR = color;
     }
 
-    static enum Orientation
+    enum Orientation
     {
         VERTICAL,
-        HORIZONTAL;
+        HORIZONTAL
     }
 }

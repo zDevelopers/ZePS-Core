@@ -30,7 +30,9 @@ public enum Station
     SEPTENTRION_OCCIDENTAL(-714, -1436, "Bout Septentrional du monde", StationType.INTERSECTION_ONLY),
     PIC_MARECAGE(-779, -1436, "Pic du marécage", StationType.INTERSECTION_AND_PORTAL),
     HURLENEIGE(-540, -1436, "Hurleneige", StationType.INTERSECTION_AND_PORTAL),
-    GARDIENS(-413, -1436, "Chute de gardiens"),
+    FROSTBORN_CANYON(-485, -1436, "Frostborn Canyon", StationType.INTERSECTION_ONLY),
+    VOYAGE_ECLAIR(-485, -1675, "Voyage-Éclair (Sanctuary)", StationType.INTERSECTION_AND_PORTAL),
+    GARDIENS(-413, -1436, "Chute de gardiens", StationType.INTERSECTION_AND_PORTAL),
     FORET_COUVERTE(-570, -1129, "Forêt couverte et Marais montagneux"),
     MOINTAGNE(-714, -397, "Mointagne"),
     ISLA_NUBLAR(-529, -520, "Isla Nublar"),
@@ -116,7 +118,7 @@ public enum Station
     HALDA(684, -260, "Halda", StationType.INTERSECTION_AND_PORTAL),
     TASSE(714, -260, "La tasse", StationType.INTERSECTION_AND_PORTAL),
     EURAZIE(259, 47, "EuraZie", StationType.INTERSECTION_ONLY),
-    SECTEUR_GHASTS(296, 47, "Secteur Ghasts", StationType.INTERSECTION_ONLY),
+    SECTEUR_GHASTS(295, 47, "Secteur Ghasts", StationType.INTERSECTION_ONLY),
     CLEM(425, 47, "Secteur Clem", StationType.INTERSECTION_AND_PORTAL),
     MELBURNE(540, 47, "Melburne", StationType.INTERSECTION_ONLY),
     MACCRAGE(30, -202, "Secteur Maccrage", StationType.INTERSECTION_AND_PORTAL),
@@ -192,8 +194,7 @@ public enum Station
     RAZIEL(30, 92, "Raziel"),
     INTERSECT_19(30, 112, "Intersection", StationType.INTERSECTION_ONLY, true, false),
     FORTERESSE_3(30, 128, "Forteresse 3"),
-    INTERSECT_20(30, 152, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    ARBRE_BIBLIOTHEQUE(-36, 152, "Arbre bibliothèque"),
+    ARBRE_BIBLIOTHEQUE(30, 152, "Arbre bibliothèque"),
     SIGICOAL(30, 189, "Sigicoal III"),
 
     MORZAN(-40, 64, "Morzan"),
@@ -205,16 +206,12 @@ public enum Station
     INTERSECT_22(22, 140, "Intersection", StationType.INTERSECTION_ONLY, true, false),
     INTERSECT_23(55, 140, "Intersection", StationType.INTERSECTION_ONLY, true, false),
     ELEVAGE_DE_MEUH(155, 140, "Élevage de Meuh"),
-    INTERSECT_24(55, 164, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    AMPHIPOLIS(128, 164, "Amphipolis"),
-    INTERSECT_25(55, 184, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    REZERVE(77, 184, "RéZerve"),
-    INTERSECT_26(55, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    INTERSECT_27(108, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    INTERSECT_28(108, 296, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    FOREST_OF_MAGIC_ISLAND(64, 296, "Forest of Magic Island"),
-    INTERSECT_29(108, 345, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    ILE_PARADISIAQUE(123, 345, "Île paradisiaque"),
+    AMPHIPOLIS(55, 164, "Amphipolis"),
+    REZERVE(55, 184, "RéZerve"),
+    INTERSECT_26(55, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false), //ok
+    INTERSECT_27(108, 206, "Intersection", StationType.INTERSECTION_ONLY, true, false), //ok
+    FOREST_OF_MAGIC_ISLAND(108, 296, "Forest of Magic Island"),
+    ILE_PARADISIAQUE(108, 345, "Île paradisiaque"),
     INTERSECT_30(108, 460, "Intersection", StationType.INTERSECTION_ONLY, true, false),
     MONTAGNES_CREUSES(108, 481, "Montagnes creuses"),
     BAIE_HA_LONG(295, 460, "Baie d'Ha-Long", StationType.INTERSECTION_AND_PORTAL),
@@ -222,12 +219,10 @@ public enum Station
     STEP_31(295, 326, "Étape", StationType.INTERSECTION_ONLY, true, true),
     STEP_32(295, 304, "Étape", StationType.INTERSECTION_ONLY, true, true),
     FORT_BOYAUX(295, 133, "Fort Boyaux"),
-    INTERSECT_33(295, 61, "Intersection", StationType.INTERSECTION_ONLY, true, false),
-    SANATORIUM_VERT(275, 61, "Sanatorium Vert"),
+    SANATORIUM_VERT(295, 61, "Sanatorium Vert"),
 
-    INTERSECT_34(221, 74, "Intersection", StationType.INTERSECTION_ONLY, true, false),
+    KASTOU(221, 74, "Kastou"),
     SWAG_ISLAND(221, 186, "Swag island"),
-    KASTOU(186, 74, "Kastou"),
 
     TOUR_INFERNALE(259, 164, "Tour Infernale")
 
@@ -250,8 +245,10 @@ public enum Station
         register(CHESNATOWN, SEPTENTRION_OCCIDENTAL, null, KRAVEN, null); //
         register(SEPTENTRION_OCCIDENTAL, null, HURLENEIGE, CHESNATOWN, PIC_MARECAGE); //
         register(PIC_MARECAGE, null, SEPTENTRION_OCCIDENTAL, null, null); //
-        register(HURLENEIGE, null, GARDIENS, null, SEPTENTRION_OCCIDENTAL); //
-        register(GARDIENS, null, BOREE, null, HURLENEIGE); //
+        register(HURLENEIGE, null, FROSTBORN_CANYON, null, SEPTENTRION_OCCIDENTAL); //
+        register(FROSTBORN_CANYON, VOYAGE_ECLAIR, GARDIENS, null, HURLENEIGE); //
+        register(VOYAGE_ECLAIR, null, null, FROSTBORN_CANYON, null); //
+        register(GARDIENS, null, BOREE, null, FROSTBORN_CANYON); //
         register(FORET_COUVERTE, null, null, CARBONE, null); //
         register(MOINTAGNE, PEPINIERE_OUEST, null, UNKNOWN_1, null);
         register(ISLA_NUBLAR, CHEZ_CARANDOOM, null, CHEZ_CANTIN, null); //
@@ -341,7 +338,7 @@ public enum Station
         register(HALDA, null, TASSE, null, GOULAG);
         register(TASSE, null, null, null, HALDA);
         register(EURAZIE, new Station[] {UNKNOWN_5, SILVERISLAND, TOUR_INFERNALE, AZIE}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL}); //
-        register(SECTEUR_GHASTS, new Station[] {null, CLEM, INTERSECT_33, SILVERISLAND}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
+        register(SECTEUR_GHASTS, new Station[] {null, CLEM, SANATORIUM_VERT, SILVERISLAND}, new PathType[] {PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
         register(CLEM, null, MELBURNE, null, SECTEUR_GHASTS);
         register(MELBURNE, CART_TOON, null, POSEIDOPOLIS_EST, CLEM);
         register(MACCRAGE, AIGUILLAGE_BAZAR, null, BALADE, null);
@@ -365,7 +362,7 @@ public enum Station
         register(MOBY_DICK, null, AGRISUB_1, null, VAALON);
         register(AGRISUB_1, null, UNKNOWN_11, null, MOBY_DICK);
         register(UNKNOWN_11, null, AZIE, null, AGRISUB_1);
-        register(AZIE, new Station[] {null, EURAZIE, INTERSECT_34, UNKNOWN_11}, new PathType[]{PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
+        register(AZIE, new Station[] {null, EURAZIE, KASTOU, UNKNOWN_11}, new PathType[]{PathType.OFFICIAL_RAIL, PathType.OFFICIAL_RAIL, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_RAIL});
         register(SILVERISLAND, null, SECTEUR_GHASTS, null, EURAZIE);
         register(COLLINE_JAMBES, null, VAALON, null, GRANDE_LOTTERIE);
         register(GRANDE_LOTTERIE, null, COLLINE_JAMBES, null, FORTERESSE_1);
@@ -412,10 +409,9 @@ public enum Station
         registerWalk(ADELLIA, INTERSECT_18, null, RAZIEL, null);
         registerWalk(RAZIEL, ADELLIA, null, INTERSECT_19, null);
         registerWalk(INTERSECT_19, RAZIEL, null, FORTERESSE_3, TAVERNE_BUNKER);
-        registerWalk(FORTERESSE_3, INTERSECT_19, null, INTERSECT_20, null);
-        registerWalk(INTERSECT_20, FORTERESSE_3, null, SIGICOAL, ARBRE_BIBLIOTHEQUE);
-        registerWalk(ARBRE_BIBLIOTHEQUE, null, INTERSECT_20, null, null);
-        registerWalk(SIGICOAL, INTERSECT_20, null, null, null);
+        registerWalk(FORTERESSE_3, INTERSECT_19, null, ARBRE_BIBLIOTHEQUE, null);
+        registerWalk(ARBRE_BIBLIOTHEQUE, FORTERESSE_3, null, SIGICOAL, null);
+        registerWalk(SIGICOAL, ARBRE_BIBLIOTHEQUE, null, null, null);
 
         registerWalk(MORZAN, null, INTERSECT_18, SMASTEN, INTERSECT_21);
         registerWalk(SMASTEN, MORZAN, null, null, null);
@@ -424,36 +420,30 @@ public enum Station
 
         registerWalk(TAVERNE_BUNKER, null, INTERSECT_19, INTERSECT_22, null);
         registerWalk(INTERSECT_22, TAVERNE_BUNKER, INTERSECT_23, null, null);
-        registerWalk(INTERSECT_23, null, ELEVAGE_DE_MEUH, INTERSECT_24, INTERSECT_22);
+        registerWalk(INTERSECT_23, null, ELEVAGE_DE_MEUH, AMPHIPOLIS, INTERSECT_22);
         registerWalk(ELEVAGE_DE_MEUH, null, null, null, INTERSECT_23);
-        registerWalk(INTERSECT_24, INTERSECT_23, AMPHIPOLIS, INTERSECT_25, null);
-        registerWalk(AMPHIPOLIS, null, null, null, INTERSECT_24);
-        registerWalk(INTERSECT_25, INTERSECT_24, REZERVE, INTERSECT_26, null);
-        registerWalk(REZERVE, null, null, null, INTERSECT_25);
-        registerWalk(INTERSECT_26, INTERSECT_25, INTERSECT_27, null, null);
-        registerWalk(INTERSECT_27, null, null, INTERSECT_28, INTERSECT_26);
-        registerWalk(INTERSECT_28, INTERSECT_27, null, INTERSECT_29, FOREST_OF_MAGIC_ISLAND);
-        registerWalk(FOREST_OF_MAGIC_ISLAND, null, INTERSECT_28, null, null);
-        register(INTERSECT_29, new Station[]{INTERSECT_28, ILE_PARADISIAQUE, INTERSECT_30, null}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
-        registerWalk(ILE_PARADISIAQUE, null, null, null, INTERSECT_29);
-        register(INTERSECT_30, new Station[]{INTERSECT_29, BAIE_HA_LONG, MONTAGNES_CREUSES, null}, new PathType[] {PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        registerWalk(AMPHIPOLIS, INTERSECT_23, null, REZERVE, null);
+        registerWalk(REZERVE, AMPHIPOLIS, null, INTERSECT_26, null);
+        registerWalk(INTERSECT_26, REZERVE, INTERSECT_27, null, null);
+        registerWalk(INTERSECT_27, null, null, FOREST_OF_MAGIC_ISLAND, INTERSECT_26);
+        registerWalk(FOREST_OF_MAGIC_ISLAND, INTERSECT_27, null, ILE_PARADISIAQUE, null);
+        register(ILE_PARADISIAQUE, new Station[]{FOREST_OF_MAGIC_ISLAND, null, INTERSECT_30, null}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
+        register(INTERSECT_30, new Station[]{ILE_PARADISIAQUE, BAIE_HA_LONG, MONTAGNES_CREUSES, null}, new PathType[] {PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
         registerWalk(MONTAGNES_CREUSES, INTERSECT_30, null, null, null);
 
         registerWalk(BAIE_HA_LONG, STEP_31, MASTER_PWEL, null, INTERSECT_30);
         registerWalk(MASTER_PWEL, null, null, null, BAIE_HA_LONG);
         register(STEP_31, new Station[]{STEP_32, null, BAIE_HA_LONG, null}, new PathType[] {PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
         register(STEP_32, new Station[]{FORT_BOYAUX, null, STEP_31, null}, new PathType[] {PathType.OFFICIAL_WALKING, PathType.OFFICIAL_WALKING, PathType.UNOFFICIAL_WALKING, PathType.OFFICIAL_WALKING});
-        registerWalk(FORT_BOYAUX, INTERSECT_33, null, STEP_32, null);
-        registerWalk(INTERSECT_33, SECTEUR_GHASTS, null, FORT_BOYAUX, SANATORIUM_VERT);
-        registerWalk(SANATORIUM_VERT, null, INTERSECT_33, null, null);
+        registerWalk(FORT_BOYAUX, SANATORIUM_VERT, null, STEP_32, null);
+        registerWalk(SANATORIUM_VERT, SECTEUR_GHASTS, null, FORT_BOYAUX, null);
 
-        registerWalk(INTERSECT_34, AZIE, null, SWAG_ISLAND, KASTOU);
-        registerWalk(SWAG_ISLAND, INTERSECT_34, null, null, null);
-        registerWalk(KASTOU, null, INTERSECT_34, null, null);
+        registerWalk(KASTOU, AZIE, null, SWAG_ISLAND, null);
+        registerWalk(SWAG_ISLAND, KASTOU, null, null, null);
 
         registerWalk(TOUR_INFERNALE, EURAZIE, null, null, null);
 
-         // check();
+        // check();
     }
 
 
