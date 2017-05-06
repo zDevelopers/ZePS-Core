@@ -89,8 +89,9 @@ public enum Station
     BLAZE_ROAD(-145, -702, "Blaze Road", StationType.INTERSECTION_ONLY),
     MER_ADIEUX(30, -702, "Mer des Adieux", StationType.INTERSECTION_ONLY),
     FERME_VILLAGEOIS(30, -829, "Ferme à Villageois", StationType.INTERSECTION_AND_PORTAL),
-    POINT_CENTRAL(30, -863, "Monument de Point Central", StationType.INTERSECTION_AND_PORTAL),
-    ARCHIPEL_TROPE(142,-864, "Archipel Trope", StationType.INTERSECTION_AND_PORTAL),
+    POINT_CENTRAL(30, -863, "Point Central", StationType.INTERSECTION_AND_PORTAL),
+    MONUMENT_DE_POINT_CENTRAL(-21, -863, "Monument de Point Central", StationType.INTERSECTION_AND_PORTAL),
+    ARCHIPEL_TROPE(142,-863, "Archipel Trope", StationType.INTERSECTION_AND_PORTAL),
     PINK_TOWER(142,-907, "Pink Tower", StationType.INTERSECTION_AND_PORTAL),
     JONCTION(121, -702, "Jonction des continents"),
     MARAYA(294, -702, "Maraya Toumismo", StationType.INTERSECTION_ONLY),
@@ -310,10 +311,11 @@ public enum Station
         register(BLAZE_ROAD, null, MER_ADIEUX, null, ACADEMIE); //
         register(MER_ADIEUX, FERME_VILLAGEOIS, JONCTION, PROJETZ, BLAZE_ROAD); //
         register(FERME_VILLAGEOIS, POINT_CENTRAL, null, MER_ADIEUX, null); //
-        register(POINT_CENTRAL, FALAISIE, ARCHIPEL_TROPE, FERME_VILLAGEOIS, null); //
-        register(ARCHIPEL_TROPE, PINK_TOWER, null, null, POINT_CENTRAL);
-        register(PINK_TOWER, null, null, ARCHIPEL_TROPE, null);
-        register(GUET, DEPOT, null, null, null);
+        register(POINT_CENTRAL, FALAISIE, ARCHIPEL_TROPE, FERME_VILLAGEOIS, MONUMENT_DE_POINT_CENTRAL); //
+        register(MONUMENT_DE_POINT_CENTRAL, null, POINT_CENTRAL, null, null); //
+        register(ARCHIPEL_TROPE, PINK_TOWER, null, null, POINT_CENTRAL); //
+        register(PINK_TOWER, null, null, ARCHIPEL_TROPE, null); //
+        register(GUET, DEPOT, null, null, null); //
         register(JONCTION, null, MARAYA, null, MER_ADIEUX); // ***
         register(MARAYA, null, SPERANZA, VYNCIS, JONCTION);
         register(SPERANZA_PRISTINE, COL_AIGUES, null, ILE_PRISTINE, SPERANZA);
