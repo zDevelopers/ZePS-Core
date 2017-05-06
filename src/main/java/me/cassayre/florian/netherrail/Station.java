@@ -90,6 +90,8 @@ public enum Station
     MER_ADIEUX(30, -702, "Mer des Adieux", StationType.INTERSECTION_ONLY),
     FERME_VILLAGEOIS(30, -829, "Ferme à Villageois", StationType.INTERSECTION_AND_PORTAL),
     POINT_CENTRAL(30, -863, "Monument de Point Central", StationType.INTERSECTION_AND_PORTAL),
+    ARCHIPEL_TROPE(142,-864, "Archipel Trope", StationType.INTERSECTION_AND_PORTAL),
+    PINK_TOWER(142,-907, "Pink Tower", StationType.INTERSECTION_AND_PORTAL),
     JONCTION(121, -702, "Jonction des continents"),
     MARAYA(294, -702, "Maraya Toumismo", StationType.INTERSECTION_ONLY),
     SPERANZA_PRISTINE(540, -702, "Speranza Pristine", StationType.INTERSECTION_ONLY),
@@ -308,7 +310,9 @@ public enum Station
         register(BLAZE_ROAD, null, MER_ADIEUX, null, ACADEMIE); //
         register(MER_ADIEUX, FERME_VILLAGEOIS, JONCTION, PROJETZ, BLAZE_ROAD); //
         register(FERME_VILLAGEOIS, POINT_CENTRAL, null, MER_ADIEUX, null); //
-        register(POINT_CENTRAL, FALAISIE, null, FERME_VILLAGEOIS, null); //
+        register(POINT_CENTRAL, FALAISIE, ARCHIPEL_TROPE, FERME_VILLAGEOIS, null); //
+        register(ARCHIPEL_TROPE, PINK_TOWER, null, null, POINT_CENTRAL);
+        register(PINK_TOWER, null, null, ARCHIPEL_TROPE, null);
         register(GUET, DEPOT, null, null, null);
         register(JONCTION, null, MARAYA, null, MER_ADIEUX); // ***
         register(MARAYA, null, SPERANZA, VYNCIS, JONCTION);
