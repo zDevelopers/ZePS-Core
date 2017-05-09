@@ -103,7 +103,7 @@ public enum Station
     KERLAM(-529, 421, "Kerlam", StationType.INTERSECTION_AND_PORTAL),
     ALEXANDRIE(-529, 292, "Alexandrie", StationType.INTERSECTION_AND_PORTAL),
     GUET(-529, 598, "Tour de guet"),
-    ACADEMIE(-219, -702, "Académie des Sages"),
+    ACADEMIE(-219, -702, "Académie des Mages"),
     BLAZE_ROAD(-145, -702, "Blaze Road", StationType.INTERSECTION_ONLY),
     MER_ADIEUX(30, -702, "Mer des Adieux", StationType.INTERSECTION_ONLY),
     FERME_VILLAGEOIS(30, -829, "Ferme à Villageois", StationType.INTERSECTION_AND_PORTAL),
