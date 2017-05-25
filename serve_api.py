@@ -17,7 +17,7 @@ if not 'ZEPS_CORE_JAR' in os.environ:
 zeps_core = Path(os.environ.get('ZEPS_CORE_JAR')).expand()
 
 if not zeps_core.exists():
-    print('ZePS Core JAR undefined or not found. Check the ZEPS_CORE_JAR environment variable.', file=sys.stderr)
+    print('ZePS Core JAR not found. Check the ZEPS_CORE_JAR environment variable.', file=sys.stderr)
     sys.exit(1)
 
 def call_core(command, *args):
