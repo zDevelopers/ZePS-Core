@@ -1,13 +1,10 @@
-extern crate serde;
-extern crate serde_json;
+extern crate zeps;
 
-#[macro_use]
-extern crate serde_derive;
-
-mod config;
-mod data;
+use zeps::data::world::World;
 
 fn main() {
-    let u = config::read_world_from_file("../vessinque.json").unwrap();
-    println!("World: {:#?}", u);
+    let u: World = zeps::config::read_world_from_file("./tests/fixtures/example.json").unwrap().into();
+    //println!("World: {:#?}", u);
+    let s: Vec<_> = u.stations().collect();
+    println!("Stations: {:#?}", s);
 }

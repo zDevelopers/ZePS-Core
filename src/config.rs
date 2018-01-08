@@ -4,12 +4,13 @@ use std::error::Error;
 use std::collections::HashMap;
 
 use serde_json;
+use std::io::Read;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
 pub enum Coordinates {
-    Simple(u64,u64),
-    Complete(u64,u64,u64),
+    Simple(i64,i64),
+    Complete(i64,i64,i64),
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -69,7 +70,11 @@ pub struct World {
     pub networks_connections: Vec<NetworkConnection>,
 }
 
+pub fn read_world<R: Read>(reader: R) -> Result<World, Box<Error>> {
+    Ok(serde_json::from_reader(reader)?)
+}
+
 pub fn read_world_from_file<P: AsRef<Path>>(path: P) -> Result<World, Box<Error>> {
-    Ok(serde_json::from_reader(File::open(path)?)?)
+    Ok(read_world(File::open(path)?)?)
 }
 

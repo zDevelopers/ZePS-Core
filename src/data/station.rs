@@ -1,5 +1,6 @@
 use data::coordinates::Coordinates;
 
+#[derive(Debug)]
 pub struct Station {
     name: String,
     subname: String,

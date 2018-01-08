@@ -1,0 +1,58 @@
+{
+    "name": "Vessinque",
+    "networks": {
+        "netherrail": {
+            "name": "Netherrail",
+            "world": "v5_nether",
+
+            "is_nether": true,
+
+            "coordinates_factor": 0.125,
+
+            "stations": {
+                "station_code_name": {
+                    "name": "Displayed station name",
+                    "subname": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
+                }
+            },
+
+            "lines": [
+                {
+                    "name": "(can be left empty or removed)",
+                    "color": "#rrggbb",
+                    "path": [
+                        "station_1",
+                        "station_2",
+                        {
+                            "station": "station_3",
+                            "path_type": "walk",
+                            "path_secure": false,
+                            "path_to_next": [[0, 0,0], [0, 0], [0, 0, 0]]
+                        },
+                        "station_4"
+                    ]
+                }
+            ]
+        }
+    },
+    "networks_connections": [
+        {
+            "networks": ["netherrail", "overworld"],
+            "autoconnect_by_name": true,
+            "autoconnect_by_proximity": 10,
+            "connections": [
+                ["station_in_the_netherrail", "station_in_the_overworld"],
+                ["station_in_the_netherrail", "station_in_the_overworld"],
+                ["station_in_the_netherrail", "station_in_the_overworld"]
+            ]
+        }
+    ]
+}
