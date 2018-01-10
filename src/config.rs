@@ -1,10 +1,10 @@
-use std::path::Path;
-use std::fs::File;
-use std::error::Error;
 use std::collections::HashMap;
+use std::io::Read;
+
+use failure::Error;
+use failure::ResultExt;
 
 use serde_json;
-use std::io::Read;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(untagged)]
@@ -43,6 +43,7 @@ pub struct Station {
     pub is_main: bool,
     pub has_fast_access: bool,
     pub fast_access_time: f64,
+    pub is_hidden: Option<bool>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -64,17 +65,12 @@ pub struct NetworkConnection {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct World {
+pub struct Universe {
     pub name: String,
     pub networks: HashMap<String, Network>,
     pub networks_connections: Vec<NetworkConnection>,
 }
 
-pub fn read_world<R: Read>(reader: R) -> Result<World, Box<Error>> {
-    Ok(serde_json::from_reader(reader)?)
+pub fn read_universe<R: Read>(reader: R) -> Result<Universe, Error> {
+    Ok(serde_json::from_reader(reader).context("Unable to parse universe data")?)
 }
-
-pub fn read_world_from_file<P: AsRef<Path>>(path: P) -> Result<World, Box<Error>> {
-    Ok(read_world(File::open(path)?)?)
-}
-

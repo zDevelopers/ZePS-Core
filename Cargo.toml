@@ -7,6 +7,8 @@ authors = ["The zDevelopers"]
 serde = "1.0.8"
 serde_json = "1.0.2"
 serde_derive = "1.0.8"
+failure = "0.1.1"
+failure_derive = "0.1.1"
 
 [lib]
 name = "zeps"

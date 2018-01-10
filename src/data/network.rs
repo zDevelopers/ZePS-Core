@@ -3,6 +3,7 @@ use data::station::Station;
 use std::collections::HashMap;
 use std::collections::hash_map::Values;
 
+#[derive(Debug)]
 pub struct Network {
     minecraft_world_name: String,
     display_name: String,
@@ -14,6 +15,18 @@ pub struct Network {
 impl Network {
     pub fn stations(&self) -> Stations {
         Stations { iter: self.stations.values() }
+    }
+
+    pub fn display_name(&self) -> &str {
+        &self.display_name
+    }
+
+    pub fn world_name(&self) -> &str {
+        &self.minecraft_world_name
+    }
+
+    pub fn coordinates_factor(&self) -> f64 {
+        self.coordinates_factor
     }
 }
 

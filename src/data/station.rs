@@ -10,6 +10,7 @@ pub struct Station {
     is_main: bool,
     has_fast_access: bool,
     fast_access_time: f64,
+    is_hidden: bool,
 }
 
 impl From<::config::Station> for Station {
@@ -23,6 +24,7 @@ impl From<::config::Station> for Station {
             is_main: station.is_main,
             has_fast_access: station.has_fast_access,
             fast_access_time: station.fast_access_time,
+            is_hidden: station.is_hidden.unwrap_or(false)
         }
     }
 }
