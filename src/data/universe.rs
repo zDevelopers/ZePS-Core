@@ -38,17 +38,24 @@ impl Universe {
     }
 
     pub fn from_config(universe: ::config::Universe) -> Result<Universe, InvalidConfigurationError> {
-        let networks = universe.networks.into_iter()
-            .map(|(k,v)| (k, Rc::new(v.into())))
-            .collect();
+        let mut networks: HashMap<String, Rc<Network>> = HashMap::new();
 
-        let network_connections: Result<_, _> = universe.networks_connections.into_iter()
-            .map(|c| NetworkConnection::from_config(c, &networks)).collect();
+        for network in universe.networks.into_iter().map(|(k, v)| (k, Network::from_config(v))) {
+            match network.1 {
+                Ok(n) => networks.insert(network.0, Rc::new(n)),
+                Err(e) => return Err(e)
+            };
+        }
+
+        let networks = networks;
+
+        let network_connections = universe.networks_connections.into_iter()
+            .map(|c| NetworkConnection::from_config(c, &networks)).collect::<Result<_,_>>()?;
 
         Ok(Universe {
             display_name: universe.name,
             networks,
-            network_connections: network_connections?,
+            network_connections,
         })
 
     }
@@ -60,7 +67,7 @@ pub struct Stations<'a> {
 }
 
 impl<'a> Iterator for Stations<'a> {
-    type Item = &'a Station;
+    type Item = &'a Rc<Station>;
 
     fn next(&mut self) -> Option<Self::Item> {
         loop {

@@ -21,6 +21,30 @@
 
                     "has_fast_access": true,
                     "fast_access_time": 10
+                },
+                "station_code_name_2": {
+                    "name": "Displayed station name",
+                    "subname": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
+                },
+                "station_code_name_3": {
+                    "name": "Displayed station name",
+                    "subname": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
                 }
             },
 
@@ -29,18 +53,24 @@
                     "name": "(can be left empty or removed)",
                     "color": "#rrggbb",
                     "path": [
-                        "station_1",
-                        "station_2",
+                        "station_code_name",
+                        "station_code_name_2",
                         {
-                            "station": "station_3",
+                            "station": "station_code_name_3",
                             "path_type": "walk",
                             "path_secure": false,
                             "path_to_next": [[0, 0,0], [0, 0], [0, 0, 0]]
-                        },
-                        "station_4"
+                        }
                     ]
                 }
             ]
+        },
+
+        "overworld": {
+            "name": "Surface",
+            "world": "V5",
+            "stations": {},
+            "lines": []
         }
     },
     "networks_connections": [
