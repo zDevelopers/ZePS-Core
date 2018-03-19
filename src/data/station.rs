@@ -3,7 +3,7 @@ use data::coordinates::Coordinates;
 #[derive(Debug)]
 pub struct Station {
     name: String,
-    subname: String,
+    sub_name: String,
     description: String,
     coordinates: Coordinates,
     real_coordinates: Coordinates,
@@ -17,7 +17,7 @@ impl From<::config::Station> for Station {
     fn from(station: ::config::Station) -> Station {
         Station {
             name: station.name,
-            subname: station.subname,
+            sub_name: station.sub_name,
             description: station.description,
             coordinates: station.coordinates.clone().into(),
             real_coordinates: station.real_coordinates.unwrap_or(station.coordinates).into(),

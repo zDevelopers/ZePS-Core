@@ -35,7 +35,7 @@ pub struct Line {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Station {
     pub name: String,
-    pub subname: String,
+    pub sub_name: String,
     pub description: String,
     pub coordinates: Coordinates,
     pub real_coordinates: Option<Coordinates>,

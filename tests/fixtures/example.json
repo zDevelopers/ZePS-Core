@@ -12,7 +12,7 @@
             "stations": {
                 "station_code_name": {
                     "name": "Displayed station name",
-                    "subname": "For stations with a main name and another pomf",
+                    "sub_name": "For stations with a main name and another pomf",
                     "description": "If needed, displayed in the map balloon. Can be omitted.",
                     "coordinates": [0, 0, 0],
                     "real_coordinates": [0, 0, 0],
@@ -24,7 +24,7 @@
                 },
                 "station_code_name_2": {
                     "name": "Displayed station name",
-                    "subname": "For stations with a main name and another pomf",
+                    "sub_name": "For stations with a main name and another pomf",
                     "description": "If needed, displayed in the map balloon. Can be omitted.",
                     "coordinates": [0, 0, 0],
                     "real_coordinates": [0, 0, 0],
@@ -36,7 +36,7 @@
                 },
                 "station_code_name_3": {
                     "name": "Displayed station name",
-                    "subname": "For stations with a main name and another pomf",
+                    "sub_name": "For stations with a main name and another pomf",
                     "description": "If needed, displayed in the map balloon. Can be omitted.",
                     "coordinates": [0, 0, 0],
                     "real_coordinates": [0, 0, 0],
