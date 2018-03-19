@@ -22,6 +22,10 @@ impl Network {
         Stations { iter: self.stations.values() }
     }
 
+    pub fn station(&self, station_code: &String) -> Option<Rc<Station>> {
+        self.stations.get(station_code).cloned()
+    }
+
     pub fn display_name(&self) -> &str {
         &self.display_name
     }

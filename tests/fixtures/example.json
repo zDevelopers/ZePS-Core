@@ -69,7 +69,32 @@
         "overworld": {
             "name": "Surface",
             "world": "V5",
-            "stations": {},
+            "stations": {
+                "overworld_station": {
+                    "name": "Displayed station name",
+                    "sub_name": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
+                },
+                "overworld_station_2": {
+                    "name": "Displayed station name",
+                    "sub_name": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
+                }
+            },
             "lines": []
         }
     },
@@ -79,9 +104,8 @@
             "autoconnect_by_name": true,
             "autoconnect_by_proximity": 10,
             "connections": [
-                ["station_in_the_netherrail", "station_in_the_overworld"],
-                ["station_in_the_netherrail", "station_in_the_overworld"],
-                ["station_in_the_netherrail", "station_in_the_overworld"]
+                ["station_code_name", "overworld_station"],
+                ["station_code_name_2", "overworld_station_2"]
             ]
         }
     ]
