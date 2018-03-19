@@ -2,12 +2,11 @@ extern crate zeps;
 extern crate failure;
 
 use std::io::Write;
-
-use zeps::data::universe::Universe;
 use failure::Error;
+use zeps::data::universe::Universe;
 
 fn print_error(e: &Error) {
-    let seriously_dude = "Unable to write to standard error output (stderr) !";
+    let seriously_dude = "Unable to write to standard error output (stderr)!";
     let stderr = &mut ::std::io::stderr();
     let mut stderr = stderr.lock();
 
@@ -31,7 +30,7 @@ fn main() {
 }
 
 fn run() -> Result<(), Error> {
-    let u: Universe = zeps::read_universe_from_file("./tests/fixtures/example.json")?;
+    let u: Universe = zeps::read_universe_from_file("./tests/fixtures/with_data.json")?;
     let s: Vec<_> = u.stations().collect();
     println!("Stations: {:#?}", s);
     Ok(())

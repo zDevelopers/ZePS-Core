@@ -1,0 +1,23 @@
+{
+    "name": "Vessinque",
+    "networks": {
+        "netherrail": {
+            "name": "Netherrail",
+            "world": "v5_nether",
+
+            "is_nether": true,
+
+            "coordinates_factor": 0.125,
+
+            "stations": {},
+            "lines": []
+        }
+    },
+    "networks_connections": [
+        {
+            "networks": ["netherrail", "overworld"],
+            "autoconnect_by_name": true,
+            "autoconnect_by_proximity": 10
+        }
+    ]
+}

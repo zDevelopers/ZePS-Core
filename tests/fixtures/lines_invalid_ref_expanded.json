@@ -1,0 +1,45 @@
+{
+    "name": "Vessinque",
+    "networks": {
+        "netherrail": {
+            "name": "Netherrail",
+            "world": "v5_nether",
+
+            "is_nether": true,
+
+            "coordinates_factor": 0.125,
+
+            "stations": {
+                "station_code_name": {
+                    "name": "Displayed station name",
+                    "sub_name": "For stations with a main name and another pomf",
+                    "description": "If needed, displayed in the map balloon. Can be omitted.",
+                    "coordinates": [0, 0, 0],
+                    "real_coordinates": [0, 0, 0],
+
+                    "is_main": true,
+
+                    "has_fast_access": true,
+                    "fast_access_time": 10
+                }
+            },
+
+            "lines": [
+                {
+                    "name": "(can be left empty or removed)",
+                    "color": "#rrggbb",
+                    "path": [
+                        "station_code_name",
+                        {
+                            "station": "station_code_name_unknown",
+                            "path_type": "walk",
+                            "path_secure": false,
+                            "path_to_next": [[0, 0,0], [0, 0], [0, 0, 0]]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "networks_connections": []
+}
