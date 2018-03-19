@@ -1,21 +1,30 @@
-node {
-    stage('Prepare') {
-        checkout scm;
-        def environment = docker.build 'rust'
+pipeline {
+    agent {
+        docker { image: 'rust:latest' }
     }
+    stages {
+        stage('Prepare') {
+            steps {
+                checkout scm;
+            }
+        }
 
-    environment.inside {
         stage('Clean') {
-            sh 'cargo clean'
+            steps {
+                sh 'cargo clean'
+            }
         }
 
         stage('Build') {
-            sh 'cargo build'
+            steps {
+                sh 'cargo build'
+            }
         }
 
         stage('Test') {
-            sh 'cargo test'
+            steps {
+                sh 'cargo test'
+            }
         }
-    }
     }
 }
