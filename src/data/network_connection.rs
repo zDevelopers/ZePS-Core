@@ -22,8 +22,8 @@ impl NetworkConnection {
 
         let mut connections: Vec<(String,String)> = Vec::new();
 
-        if connection.connections.is_some() {
-            for conn in connection.connections.unwrap() {
+        if let Some(config_connections) = connection.connections {
+            for conn in config_connections {
                 // Checks if the references are valid
                 network_1.station(&conn.0).ok_or(InvalidConfigurationError::StationNotFound { name: conn.0.clone() })?;
                 network_2.station(&conn.1).ok_or(InvalidConfigurationError::StationNotFound { name: conn.1.clone() })?;
