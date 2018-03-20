@@ -1,13 +1,30 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      agent any
-      steps {
-        checkout scm
-        sh 'mvn clean install'
-        archiveArtifacts(artifacts: '**/target/*.jar', fingerprint: true)
-      }
+    agent {
+        docker 'rust:latest'
     }
-  }
+    stages {
+        stage('Prepare') {
+            steps {
+                checkout scm;
+            }
+        }
+
+        stage('Clean') {
+            steps {
+                sh 'cargo clean'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'cargo build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'cargo test'
+            }
+        }
+    }
 }

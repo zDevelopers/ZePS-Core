@@ -1,0 +1,15 @@
+{
+    "name": "Empty universe",
+    "networks": {
+        "netherrail": {
+            "name": "Netherrail",
+            "world": "V5_nether",
+
+            "is_nether": true,
+
+            "stations": {},
+            "lines": []
+        }
+    },
+    "networks_connections": []
+}
