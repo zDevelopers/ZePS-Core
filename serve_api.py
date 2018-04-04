@@ -1,6 +1,5 @@
 # Python 3.5+ required
 
-import json
 import os
 import sys
 import subprocess
@@ -8,9 +7,10 @@ import subprocess
 from flask import Flask, request, make_response, jsonify
 from path import Path
 
+
 app = Flask(__name__)
 
-if not 'ZEPS_CORE_JAR' in os.environ:
+if 'ZEPS_CORE_JAR' not in os.environ:
     print('Please specify ZePS-Core JAR with the ZEPS_CORE_JAR environment variable.', file=sys.stderr)
     sys.exit(1)
 
@@ -20,21 +20,25 @@ if not zeps_core.exists():
     print('ZePS Core JAR not found. Check the ZEPS_CORE_JAR environment variable.', file=sys.stderr)
     sys.exit(1)
 
+
 def call_core(command, *args):
     process = subprocess.run(['java', '-jar', zeps_core, command, *[str(arg) for arg in args]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         process.check_returncode()
         return make_response(process.stdout, 200, {'Content-Type': 'application/json'})
-    except:
+    except Exception:
         return jsonify(error=str(process.stderr), exit_code=process.returncode)
+
 
 @app.route('/list')
 def list():
     return call_core('list')
 
+
 @app.route('/list/network')
 def list_with_network():
     return call_core('list', 'true')
+
 
 @app.route('/path/<int:from_id>/<int:to_id>')
 def path(from_id, to_id):
@@ -42,9 +46,11 @@ def path(from_id, to_id):
     accessible = 'accessible' in request.args
     return call_core('pathfinder', from_id, to_id, official, accessible)
 
+
 @app.route('/colors')
 def colors():
     return call_core('colors')
+
 
 @app.route('/version')
 def version():

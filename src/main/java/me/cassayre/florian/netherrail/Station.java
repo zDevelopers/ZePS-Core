@@ -66,6 +66,8 @@ public enum Station
     LAC_AMOUREUX(-234, -1351, "Lac des amoureux"),
     SEPTENTRION(30, -1436, "Septentrion", StationType.INTERSECTION_AND_PORTAL),
     TENTACLES(206, -1436, "Tentaclès", StationType.INTERSECTION_AND_PORTAL),
+    NEVRESTIR(30, -1366, "Nevrestir", StationType.PORTAL_ONLY),
+    FERME_COMTOISE(30, -1321, "Ferme comtoise", StationType.INTERSECTION_AND_PORTAL),
     MESAPLAYA(30, -1278, "Mesaplaya", StationType.INTERSECTION_AND_PORTAL),
     RIVE_BLANCHE(30, -1207, "Rive Blanche", StationType.INTERSECTION_AND_PORTAL),
     FALAISIE(30, -1069, "Falaisie", StationType.INTERSECTION_ONLY),
@@ -163,7 +165,7 @@ public enum Station
     ATTRACTION(30, -3, "Attractions"),
     UZINE_COCHON(30, 23, "UZine à cochons"),
     VAALON(30, 47, "Vaalon", StationType.INTERSECTION_AND_PORTAL),
-    MOBY_DICK(89, 47, "New Libery & Moby Dick"),
+    MOBY_DICK(89, 47, "New Liberty & Moby Dick"),
     AGRISUB_1(132, 47, "Agrisub I", StationType.INTERSECTION_AND_PORTAL),
     UNKNOWN_11(148, 47, "Inconnue", StationType.INTERSECTION_ONLY, true, false),
     AZIE(221, 47, "Azie", StationType.INTERSECTION_AND_PORTAL),
@@ -314,10 +316,12 @@ public enum Station
         register(WITHER, CREVASSES, null, PICS_PRECIPICES, null); //
         register(CREVASSES, LAC_AMOUREUX, null, WITHER, null); //
         register(LAC_AMOUREUX, BOREE, null, CREVASSES, null); //
-        register(SEPTENTRION, NOT_FINISHED_4, TENTACLES_PORT, MESAPLAYA, BOREE); //
+        register(SEPTENTRION, NOT_FINISHED_4, TENTACLES_PORT, NEVRESTIR, BOREE); //
         register(TENTACLES_PORT, null, TENTACLES, null, SEPTENTRION); //
         register(TENTACLES, null, NORDET, null, TENTACLES_PORT); //
-        register(MESAPLAYA, SEPTENTRION, null, RIVE_BLANCHE, null); //
+        register(NEVRESTIR, SEPTENTRION, null, FERME_COMTOISE, null); //
+        register(FERME_COMTOISE, NEVRESTIR, null, MESAPLAYA, null); //
+        register(MESAPLAYA, FERME_COMTOISE, null, RIVE_BLANCHE, null); //
         register(RIVE_BLANCHE, MESAPLAYA, null, FALAISIE, null); //
         register(FALAISIE, RIVE_BLANCHE, TUX, POINT_CENTRAL, PIC_ASSAUT);
         register(TUX, null, PIC_MORIPLAY, null, FALAISIE); //
