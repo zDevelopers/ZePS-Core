@@ -7,12 +7,10 @@ import com.google.gson.JsonPrimitive;
 import java.awt.Color;
 import java.util.*;
 
-public class NetworkAreas
-{
+public class NetworkAreas {
     private final static List<Area> areas = new ArrayList<>();
 
-    static
-    {
+    static {
         registerX(new Color(255, 236, 39), -714);
         registerX(new Color(119, 98, 40), -570);
         registerX(new Color(255, 189, 206), -529);
@@ -38,66 +36,59 @@ public class NetworkAreas
         registerY(new Color(119, 98, 40), -1069);
         registerY(new Color(94, 116, 255), -1208);
         registerY(new Color(255, 122, 238), -1436);
-        registerY(new Color(110, 244, 5), -1740);
+        registerY(new Color(110, 244, 5), -1740, -2376);
     }
 
-    public static void registerX(Color color, int... coordinates)
-    {
+    public static void registerX(Color color, int... coordinates) {
         register(Area.Orientation.VERTICAL, color, coordinates);
     }
 
-    public static void registerY(Color color, int... coordinates)
-    {
+    public static void registerY(Color color, int... coordinates) {
         register(Area.Orientation.HORIZONTAL, color, coordinates);
     }
 
-    private static void register(Area.Orientation orientation, Color color, int... coordinates)
-    {
-        if(orientation == null)
+    private static void register(Area.Orientation orientation, Color color, int... coordinates) {
+        if (orientation == null)
             throw new IllegalArgumentException("Orientation cannot be null.");
 
-        if(color == null)
+        if (color == null)
             throw new IllegalArgumentException("Color cannot be null.");
 
         areas.add(new Area(orientation, color, coordinates));
     }
 
-    public static List<Area> getAreas(Area.Orientation orientation)
-    {
+    public static List<Area> getAreas(Area.Orientation orientation) {
         List<Area> list = new ArrayList<>();
 
-        for(Area area : areas)
-        {
-            if(area.ORIENTATION == orientation)
+        for (Area area : areas) {
+            if (area.ORIENTATION == orientation)
                 list.add(area);
         }
 
         return list;
     }
 
-    public static JsonObject toJson()
-    {
+    public static JsonObject toJson() {
         JsonObject object = new JsonObject();
 
         JsonArray arrayX = new JsonArray();
         JsonArray arrayY = new JsonArray();
 
-        for(Area area : areas)
-        {
+        for (Area area : areas) {
             JsonObject areaObject = new JsonObject();
 
             JsonArray array = new JsonArray();
 
-            for(Integer value : area.COORDINATES)
+            for (Integer value : area.COORDINATES)
                 array.add(new JsonPrimitive(value));
 
             areaObject.add("coordinates", array);
 
             areaObject.add("color", colorToJson(area.COLOR));
 
-            if(area.ORIENTATION == Area.Orientation.VERTICAL)
+            if (area.ORIENTATION == Area.Orientation.VERTICAL)
                 arrayX.add(areaObject);
-            else if(area.ORIENTATION == Area.Orientation.HORIZONTAL)
+            else if (area.ORIENTATION == Area.Orientation.HORIZONTAL)
                 arrayY.add(areaObject);
         }
 
@@ -108,8 +99,7 @@ public class NetworkAreas
         return object;
     }
 
-    public static JsonObject colorToJson(Color color)
-    {
+    public static JsonObject colorToJson(Color color) {
         JsonObject object = new JsonObject();
 
         object.add("red", new JsonPrimitive(color.getRed()));
@@ -120,22 +110,18 @@ public class NetworkAreas
     }
 }
 
-class Area
-{
+class Area {
     public final Orientation ORIENTATION;
     public final int[] COORDINATES;
     public final Color COLOR;
 
-    public Area(Orientation orientation, Color color, int... coordinates)
-    {
+    public Area(Orientation orientation, Color color, int... coordinates) {
         ORIENTATION = orientation;
         COORDINATES = coordinates;
         COLOR = color;
     }
 
-    enum Orientation
-    {
-        VERTICAL,
-        HORIZONTAL
+    enum Orientation {
+        VERTICAL, HORIZONTAL
     }
 }

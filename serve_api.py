@@ -55,6 +55,6 @@ def colors():
 @app.route('/version')
 def version():
     return jsonify(
-        version=zeps_core.namebase.replace('-jar-with-dependencies', ''),
+        version=zeps_core.stem.replace('-jar-with-dependencies', ''),
         sha256=str(zeps_core.read_hexhash('sha256'))
     )
