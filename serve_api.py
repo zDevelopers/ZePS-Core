@@ -25,7 +25,7 @@ if not zeps_core.exists():
 def call_core(command, *args):
     process = subprocess.run(
         [java_exec, '-jar', zeps_core, command, *[str(arg) for arg in args]],
-        env=dict(os.environ, LABG="fr_FR.UTF-8"),
+        env=dict(os.environ, LANG="fr_FR.UTF-8"),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
