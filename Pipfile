@@ -7,4 +7,4 @@ verify_ssl = true
 
 [packages]
 path = "15"
-Flask = "1"
+Flask = "2.3.2"
